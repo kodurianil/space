@@ -1,0 +1,601 @@
+[{
+  "_id": "urn:sony:product:model:nex5rk:fr_BE",
+  "differentiator_01": {
+    "id": "ID_40_40W",
+    "rootId": "powerOutput",
+    "displayName": "MaxOutputPower"
+  },
+  "masterId": "urn:sony:product:model:nex5rk",
+  "parentId": "urn:sony:product:super:nex5r",
+  "type": "urn:sony:product:model",
+  "locale": "fr_BE",
+  "version": "1",
+  "tier": "1",
+  "modelName": "NEX-5RK",
+  "powerOutput": {
+    "id": "ID_40_40W",
+    "rootId": "ID_40_40W",
+    "displayName": "40W"
+  },
+  "superModelName": "NEX-5R",
+  "marketingProductName": "NEX-5R Compact Interchangeable Lens Camera with Wi-Fi",
+  "relatedProducts": {
+    "accessoryProducts": [
+      {
+        "product": "urn:sony:product:model:batteries",
+        "isFeatured": "Yes"
+      },
+      {
+        "product": "urn:sony:product:super:batteries",
+        "isFeatured": "Yes"
+      }
+    ]
+  },
+  "images": {
+    "ecoMessageShots": [
+      {
+        "imageFamily": "urn:sony:media:image_family:eco_energy_level:000",
+        "rank": 1
+      }
+    ],
+    "primaryShot": [
+      {
+        "imageFamily": "urn:sony:media:image_family:51",
+        "rank": 1
+      },
+      {
+        "imageFamily": "urn:sony:media:image_family:52",
+        "rank": 2
+      }
+    ],
+    "productShots": [
+      {
+        "imageFamily": "urn:sony:media:image_family:51",
+        "rank": 1
+      },
+      {
+        "imageFamily": "urn:sony:media:image_family:52",
+        "rank": 2
+      }
+    ],
+    "heroShots": [
+      {
+        "imageFamily": "urn:sony:media:image_family:52",
+        "rank": 1
+      }
+    ],
+    "dimensionShots": [
+      {
+        "imageFamily": "urn:sony:media:image_family:51",
+        "rank": 1
+      }
+    ]
+  },
+  "videos": {
+    "productVideos": [
+      {
+        "videoFamily": "urn:sony:media:video_family:1",
+        "rank": 1
+      }
+    ]
+  },
+  "energyLevelTopValue": {
+    "id": "ID_1",
+    "rootId": "grade1",
+    "displayName": "Grade 1"
+  },
+  "energyLevel": {
+    "id": "ID_1",
+    "rootId": "grade1",
+    "displayName": "Grade 1"
+  },
+  "inTheBox": [
+    "Le Camera",
+    "La Wrist Strap",
+    "Le AC Adapter AC-UD11",
+    "Le Micro USB Cable",
+    "Le Battery NP-BX1",
+    "Le Instruction Manual"
+  ],
+  "keyTechSpecs": [
+    {
+      "name": "fullMeasurements",
+      "displayName": "Full Measurements",
+      "specType": "text",
+      "value": [
+        "8.7 cm * 13.3 cm * 1.3 cm excluding projections (H*W*D)"
+      ]
+    },
+    {
+      "name": "screenType",
+      "displayName": "Screen Type",
+      "specType": "text",
+      "value": [
+        "Intelligent Peak LED Backlight / LCD Display"
+      ]
+    },
+    {
+      "name": "video",
+      "displayName": "Video",
+      "specType": "text",
+      "value": [
+        "HDMI™: 1080/60p, 1080/30p, 1080/24p, 720/60p, 720/30p, 720/24p, 1080/60i | HDMI™ & Component: 480/60i, 480/60p"
+      ]
+    },
+    {
+      "name": "refreshRate",
+      "displayName": "Refresh Rate",
+      "specType": "measure",
+      "value": [
+        {
+          "value": "240",
+          "uom": "Hz",
+          "uomDisplayName": "Hz"
+        }
+      ]
+    },
+    {
+      "name": "dynamicContrastRation",
+      "displayName": "Dynamic Contrast Ratio",
+      "specType": "text",
+      "value": [
+        "1000000 : 1"
+      ]
+    },
+    {
+      "name": "inputOutput",
+      "displayName": "Input/Output",
+      "specType": "text",
+      "value": [
+        "2x RCA Stereo Audio In, 1x RCA Stereo Audio Out, 2x RCA Composite Video In, 1x RCA Component Video In, 1x Digital Digital Coaxial Audio Out, 1x Ethernet LAN In, 2x HDMI Audio/Video In, 2x HDMI Audio/Video In, 1x 1/8 (3.5mm) Headphone Out, 1x VGA Video In, 1x 1/8 (3.5mm) Audio In, 1x RF Control/Service In, 1x RS-232C Control/Service In/Out, 2x USB 2.0 Audio/Video"
+      ]
+    }
+  ],
+  "techSpecs": [
+    {
+      "name": "sizeAndWeight",
+      "displayName": "Optics/Lens",
+      "specs": [
+        {
+          "specType": "text",
+          "name": "lensType",
+          "displayName": "LENS TYPE",
+          "value": [
+            "Carl Zeiss® Vario-Sonnar T*"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "aperture",
+          "displayName": "APERTURE",
+          "value": [
+            "F1.8-4.9"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "opticalZoom",
+          "displayName": "OPTIAL ZOOM",
+          "value": [
+            "3.6x"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "digitalZoom",
+          "displayName": "DIGITAL ZOOM",
+          "value": [
+            "20M (14x), 10M (20x), 5M (28x), VGA (54x)"
+          ]
+        },
+        {
+          "specType": "measure",
+          "name": "focalLength",
+          "displayName": "FOCAL LENGTH",
+          "value": [
+            {
+              "value": "16:9 29-105",
+              "uom": "ONZ",
+              "uomDisplayName": "mm",
+              "uomSpec": "unece.unit"
+            },
+            {
+              "value": " 4:3 30-108",
+              "uom": "ONZ",
+              "uomDisplayName": "mm",
+              "uomSpec": "unece.unit"
+            },
+            {
+              "value": "3:2 28-100",
+              "uom": "ONZ",
+              "uomDisplayName": "mm",
+              "uomSpec": "unece.unit"
+            },
+            {
+              "value": "1:1 36-127",
+              "uom": "ONZ",
+              "uomDisplayName": "mm",
+              "uomSpec": "unece.unit"
+            }
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "lensConstruction",
+          "displayName": "LENS CONSTRUCTION",
+          "value": [
+            "7 elements in 6 groups (incl. AA lens)"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "apertureBlade",
+          "displayName": "APERTURE BLADE",
+          "value": [
+            "Iris diaphragm (7 blades)"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "clearImageZoom",
+          "displayName": "CLEAR IMAGE ZOOM",
+          "value": [
+            "7.2x"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "focalDistance",
+          "displayName": "FOCAL DISTANCE",
+          "value": [
+            "AF approx. 5cm to infinity (W)",
+            "approx. 55cm to infinity (T)"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "steadyShotMode",
+          "displayName": "STEADY SHOT MODE",
+          "value": [
+            "[Still image] Optical [Movie] Active Mode",
+            "Optical type with electronic compensation (Anti-rolling)"
+          ]
+        }
+      ]
+    }
+  ],
+  "featureIcons": [],
+  "readyForLive": "Yes",
+  "dependents": [
+    "urn:sony:product:super:nex5r",
+    "urn:sony:product:model:batteries",
+    "urn:sony:product:super:batteries",
+    "urn:sony:media:image_family:eco_energy_level:000",
+    "urn:sony:media:image_family:51",
+    "urn:sony:media:image_family:52",
+    "urn:sony:media:image_family:51",
+    "urn:sony:media:image_family:52",
+    "urn:sony:media:image_family:52",
+    "urn:sony:media:image_family:51",
+    "urn:sony:media:video_family:1"
+  ],
+  "name": "NEX-5RK",
+  "number": "NEX-5RK",
+  "slug": "nex-5rk",
+  "differentiators": [
+    {
+      "id": "ID_40_40W",
+      "rootId": "powerOutput",
+      "displayName": "MaxOutputPower"
+    }
+  ],
+  "minVisibleTechSpecNumber": 0,
+  "categories": {},
+  "mainCategories": {},
+  "entitySunriseDateTime": "NumberLong(1368570600000)",
+  "md5": "839939c3c34095df697180275264d50a",
+  "sunriseDateTime": "NumberLong(1368570600000)",
+  "createdAt": "NumberLong(1495451610595)",
+  "updatedAt": "NumberLong(1495451610595)"
+},
+{
+  "_id": "urn:sony:product:model:nex5rk:fr_BE",
+  "differentiator_01": {
+    "id": "ID_40_40W",
+    "rootId": "powerOutput",
+    "displayName": "MaxOutputPower"
+  },
+  "masterId": "urn:sony:product:model:nex5rk",
+  "parentId": "urn:sony:product:super:nex5r",
+  "type": "urn:sony:product:model",
+  "locale": "fr_BE",
+  "version": "1",
+  "tier": "1",
+  "modelName": "NEX-5RK",
+  "powerOutput": {
+    "id": "ID_40_40W",
+    "rootId": "ID_40_40W",
+    "displayName": "40W"
+  },
+  "superModelName": "NEX-5R",
+  "marketingProductName": "NEX-5R Compact Interchangeable Lens Camera with Wi-Fi",
+  "relatedProducts": {
+    "accessoryProducts": [
+      {
+        "product": "urn:sony:product:model:batteries",
+        "isFeatured": "Yes"
+      },
+      {
+        "product": "urn:sony:product:super:batteries",
+        "isFeatured": "Yes"
+      }
+    ]
+  },
+  "images": {
+    "ecoMessageShots": [
+      {
+        "imageFamily": "urn:sony:media:image_family:eco_energy_level:000",
+        "rank": 1
+      }
+    ],
+    "primaryShot": [
+      {
+        "imageFamily": "urn:sony:media:image_family:51",
+        "rank": 1
+      },
+      {
+        "imageFamily": "urn:sony:media:image_family:52",
+        "rank": 2
+      }
+    ],
+    "productShots": [
+      {
+        "imageFamily": "urn:sony:media:image_family:51",
+        "rank": 1
+      },
+      {
+        "imageFamily": "urn:sony:media:image_family:52",
+        "rank": 2
+      }
+    ],
+    "heroShots": [
+      {
+        "imageFamily": "urn:sony:media:image_family:52",
+        "rank": 1
+      }
+    ],
+    "dimensionShots": [
+      {
+        "imageFamily": "urn:sony:media:image_family:51",
+        "rank": 1
+      }
+    ]
+  },
+  "videos": {
+    "productVideos": [
+      {
+        "videoFamily": "urn:sony:media:video_family:1",
+        "rank": 1
+      }
+    ]
+  },
+  "energyLevelTopValue": {
+    "id": "ID_1",
+    "rootId": "grade1",
+    "displayName": "Grade 1"
+  },
+  "energyLevel": {
+    "id": "ID_1",
+    "rootId": "grade1",
+    "displayName": "Grade 1"
+  },
+  "inTheBox": [
+    "Le Camera",
+    "La Wrist Strap",
+    "Le AC Adapter AC-UD11",
+    "Le Micro USB Cable",
+    "Le Battery NP-BX1",
+    "Le Instruction Manual"
+  ],
+  "keyTechSpecs": [
+    {
+      "name": "fullMeasurements",
+      "displayName": "Full Measurements",
+      "specType": "text",
+      "value": [
+        "8.7 cm * 13.3 cm * 1.3 cm excluding projections (H*W*D)"
+      ]
+    },
+    {
+      "name": "screenType",
+      "displayName": "Screen Type",
+      "specType": "text",
+      "value": [
+        "Intelligent Peak LED Backlight / LCD Display"
+      ]
+    },
+    {
+      "name": "video",
+      "displayName": "Video",
+      "specType": "text",
+      "value": [
+        "HDMI™: 1080/60p, 1080/30p, 1080/24p, 720/60p, 720/30p, 720/24p, 1080/60i | HDMI™ & Component: 480/60i, 480/60p"
+      ]
+    },
+    {
+      "name": "refreshRate",
+      "displayName": "Refresh Rate",
+      "specType": "measure",
+      "value": [
+        {
+          "value": "240",
+          "uom": "Hz",
+          "uomDisplayName": "Hz"
+        }
+      ]
+    },
+    {
+      "name": "dynamicContrastRation",
+      "displayName": "Dynamic Contrast Ratio",
+      "specType": "text",
+      "value": [
+        "1000000 : 1"
+      ]
+    },
+    {
+      "name": "inputOutput",
+      "displayName": "Input/Output",
+      "specType": "text",
+      "value": [
+        "2x RCA Stereo Audio In, 1x RCA Stereo Audio Out, 2x RCA Composite Video In, 1x RCA Component Video In, 1x Digital Digital Coaxial Audio Out, 1x Ethernet LAN In, 2x HDMI Audio/Video In, 2x HDMI Audio/Video In, 1x 1/8 (3.5mm) Headphone Out, 1x VGA Video In, 1x 1/8 (3.5mm) Audio In, 1x RF Control/Service In, 1x RS-232C Control/Service In/Out, 2x USB 2.0 Audio/Video"
+      ]
+    }
+  ],
+  "techSpecs": [
+    {
+      "name": "sizeAndWeight",
+      "displayName": "Optics/Lens",
+      "specs": [
+        {
+          "specType": "text",
+          "name": "lensType",
+          "displayName": "LENS TYPE",
+          "value": [
+            "Carl Zeiss® Vario-Sonnar T*"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "aperture",
+          "displayName": "APERTURE",
+          "value": [
+            "F1.8-4.9"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "opticalZoom",
+          "displayName": "OPTIAL ZOOM",
+          "value": [
+            "3.6x"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "digitalZoom",
+          "displayName": "DIGITAL ZOOM",
+          "value": [
+            "20M (14x), 10M (20x), 5M (28x), VGA (54x)"
+          ]
+        },
+        {
+          "specType": "measure",
+          "name": "focalLength",
+          "displayName": "FOCAL LENGTH",
+          "value": [
+            {
+              "value": "16:9 29-105",
+              "uom": "ONZ",
+              "uomDisplayName": "mm",
+              "uomSpec": "unece.unit"
+            },
+            {
+              "value": " 4:3 30-108",
+              "uom": "ONZ",
+              "uomDisplayName": "mm",
+              "uomSpec": "unece.unit"
+            },
+            {
+              "value": "3:2 28-100",
+              "uom": "ONZ",
+              "uomDisplayName": "mm",
+              "uomSpec": "unece.unit"
+            },
+            {
+              "value": "1:1 36-127",
+              "uom": "ONZ",
+              "uomDisplayName": "mm",
+              "uomSpec": "unece.unit"
+            }
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "lensConstruction",
+          "displayName": "LENS CONSTRUCTION",
+          "value": [
+            "7 elements in 6 groups (incl. AA lens)"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "apertureBlade",
+          "displayName": "APERTURE BLADE",
+          "value": [
+            "Iris diaphragm (7 blades)"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "clearImageZoom",
+          "displayName": "CLEAR IMAGE ZOOM",
+          "value": [
+            "7.2x"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "focalDistance",
+          "displayName": "FOCAL DISTANCE",
+          "value": [
+            "AF approx. 5cm to infinity (W)",
+            "approx. 55cm to infinity (T)"
+          ]
+        },
+        {
+          "specType": "text",
+          "name": "steadyShotMode",
+          "displayName": "STEADY SHOT MODE",
+          "value": [
+            "[Still image] Optical [Movie] Active Mode",
+            "Optical type with electronic compensation (Anti-rolling)"
+          ]
+        }
+      ]
+    }
+  ],
+  "featureIcons": [],
+  "readyForLive": "Yes",
+  "dependents": [
+    "urn:sony:product:super:nex5r",
+    "urn:sony:product:model:batteries",
+    "urn:sony:product:super:batteries",
+    "urn:sony:media:image_family:eco_energy_level:000",
+    "urn:sony:media:image_family:51",
+    "urn:sony:media:image_family:52",
+    "urn:sony:media:image_family:51",
+    "urn:sony:media:image_family:52",
+    "urn:sony:media:image_family:52",
+    "urn:sony:media:image_family:51",
+    "urn:sony:media:video_family:1"
+  ],
+  "name": "NEX-5RK",
+  "number": "NEX-5RK",
+  "slug": "nex-5rk",
+  "differentiators": [
+    {
+      "id": "ID_40_40W",
+      "rootId": "powerOutput",
+      "displayName": "MaxOutputPower"
+    }
+  ],
+  "minVisibleTechSpecNumber": 0,
+  "categories": {},
+  "mainCategories": {},
+  "entitySunriseDateTime": "NumberLong(1368570600000)",
+  "md5": "839939c3c34095df697180275264d50a",
+  "sunriseDateTime": "NumberLong(1368570600000)",
+  "createdAt": "NumberLong(1495451610595)",
+  "updatedAt": "NumberLong(1495451610595)"
+}
+]

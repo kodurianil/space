@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-lg-12 greyback">
+            <div class="col-lg-6 center-align">
+                <form name="searchForm" class="search_bar" data-ng-submit="searchForm.$valid && cartCtrl.searchByQ()">
+                    <div class="search_dropdown" style="width: 17px;">
+                        <span>All</span>
+                    </div>
+
+                    <input data-ng-model="cartCtrl.searchWord" placeholder="Search for anything" style="margin-left: 59px; width: 61.6667%;"
+                        type="text">
+
+                    <button type="submit" value="Search">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row placeholders text-center">
+        <div class="container">
+            <h1 class="page-header text-left">Items in your cart</h1>
+            <div class="col-lg-9">
+                <div class=" text-center" style="font-size: 34px;" data-ng-if="!cartCtrl.productsList.length">
+                    <span>Cart is empty.</span>
+                </div>
+                <div class="cart-row" data-ng-if="cartCtrl.productsList.length">
+                    <div class="cart-header">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-5">Name</div>
+                        <div class="col-sm-3">Specs</div>
+                        <div class="col-sm-1">&nbsp;</div>
+                    </div>
+
+                    <div class="cart-body" data-ng-repeat="product in cartCtrl.productsList">
+                        <div class="col-sm-3"> <img ng-src="{{product.image}}" class="cartimg"></div>
+                        <div class="col-sm-5">{{product.model}}
+                            <br><br>{{product.name}}
+                        </div>
+                        <div class="col-sm-3">
+                            <ul class="evenHeights product-meta" data-identifier="topFeatures">
+                                <li class="p4" data-ng-repeat="topFeature in product.topFeatures">
+                                    <span class="product-meta-name">{{topFeature}}</span>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="col-sm-1 pull-right"><img ng-src="images/remove.png" class="" data-ng-click="cartCtrl.deleteCartItem($index, product)"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="cart-total">
+                    <div class="cart-info"> Cart Info </div>
+                    <div class="cart-text"> Total Products </div>
+                    <div class="cart-checkout"> Preview </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

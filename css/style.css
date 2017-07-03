@@ -1,0 +1,454 @@
+.logo{
+	padding: 20px 0;
+	margin:auto;
+	font-size:20px;
+}
+.nav > li > a {
+	padding: 35px 25px;
+    border-right: 1px solid #fefefe;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #444;
+}
+.cart_icon{
+	background: url("../images/cart.png") no-repeat;
+	height:20px;
+	width:20px;
+	float: left;
+}
+.login_icon{
+	background: url("../images/login.png") no-repeat;
+	height:20px;
+	width:20px;
+	float: right;
+}
+.top_padding{
+	padding-top: 15px;
+}
+.login{
+	color: #aaa;
+    font-size: 13px;
+    float: right;
+    margin-left: 1px;
+}
+.ycircle{
+	    width: 20px;
+    height: 20px;
+    background-color: #f4d372;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    float: left;
+    margin-left: 10px;
+    }
+.circle {        
+	width: 200px;
+    height: 200px;
+    background-color: #fff;
+    -moz-border-radius: 75px;
+    -webkit-border-radius: 75px;
+    border-radius: 100px;
+    margin-top: -161px;
+    left: 180px;
+    position: absolute;
+    z-index: 10005;}
+.scircle{
+		width: 150px;
+    height: 150px;
+    background-color: #fff;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+	float: none;
+    margin: 20px auto;
+    padding: 23px
+}
+.navbar-nav {
+    float: right;
+    width: 80%;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #000;
+    background-color: transparent;
+}
+.greyback{
+	background-color: #f8f8f8;
+}
+.contBox{
+	float:left;
+	height:200px;
+	width:27%;
+	border-radius: 2px;
+	    margin: 20px;
+}
+.center-align{
+	margin:auto;
+	float:none;
+}
+.green{
+	background-color:#60cd96;
+}
+.pink{
+	background-color:#ff9fa0;
+}
+.red{
+	background-color:#fa8f6f;
+}
+.blue{
+	background-color:#9c87c2;
+}
+.yellow{
+	background-color:#f2d474;
+}
+.scircle img{
+	height: 100px;
+    width: 100px;
+}
+.top-line{
+	background: url("../images/top.png") repeat-x;
+	height:6px;
+	width:100%;
+}
+.top-bar{
+	background-color: #404040;
+	height:49px;
+	width:100%;
+	text-align:center;
+}
+.navbar {
+    margin-bottom: 0px;
+}
+.navbar-inverse {
+    background-color: #fff;
+    border-color: #fff;
+}
+.carousel-class{
+	margin:0;
+}
+.box{
+    padding: 10px 10px;
+    border-radius: 15px;
+	border: 1px solid #cecece;
+}
+.search_bar {
+    background: transparent;
+    border: #b7b7b7 solid 1px;
+    border-radius: 3px;
+    box-shadow: 0 0 3px #ccc;
+    position: relative;
+    max-width: 100%;
+    margin: 20px 0;
+    height: 50px;
+    font-size: 15px;
+    padding: 7px;
+}
+.search_bar input[type=text] {
+  border: none;
+  box-shadow: none;
+      font-weight: normal;
+    font-size: 14px;
+  width: 90%;
+  padding: .5em;
+  margin: 0;
+  overflow: hidden;
+      background: transparent;
+}
+.search_bar input[type=text]:focus {
+  outline: none;
+}
+.search_bar button[type=submit] {
+      background: -webkit-linear-gradient(#237cd4, #1e6ab5);
+    background: linear-gradient(#494b4c, #010c17);
+    color: rgba(255, 255, 255, 0);
+    border: 1px solid #454648;
+    width: 10%;
+    min-width: 56px;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    bottom: -1px;
+    border-radius: 0 3px 3px 0;
+    margin: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.search_bar button[type=submit]:after {
+  content: '';
+  position: absolute;
+  top: 18%;
+  right: 0;
+  bottom: 22%;
+  left: 4%;
+  background: url("http://media.lib.byu.edu/assets/images/searchbar/1.0/search-icon.svg") no-repeat center center;
+  background-size: contain;
+}
+.search_bar button[type=submit]:hover, .search_bar button[type=submit]:focus {
+  background: -webkit-linear-gradient(#dedede, #999);
+  background: linear-gradient(#dedede, #999);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.search_bar .search_dropdown {
+  font-weight: 600;
+  min-width: 17px;
+  background: -webkit-linear-gradient(#f4f4f4, #e2e2e2);
+  background: linear-gradient(#f4f4f4, #e2e2e2);
+  border-right: 1px solid #ddd;
+  color: #555;
+  padding: 0 28px 0 13px;
+  border-radius: 2px 0 0 2px;
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  z-index: 10000;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  box-sizing: content-box;
+}
+.search_bar .search_dropdown:after {
+  content: "\2193";
+  color: rgba(85, 85, 85, 0);
+  background: url("http://media.lib.byu.edu/assets/images/searchbar/1.0/down-arrow.svg") no-repeat top left;
+  height: 8px;
+  width: 10px;
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin-top: -6px;
+}
+.search_bar .search_dropdown:hover, .search_bar .search_dropdown.active {
+  background: -webkit-linear-gradient(#e7e7e7, #d5d5d5);
+  background: linear-gradient(#e7e7e7, #d5d5d5);
+  cursor: pointer;
+  border-right-color: #ccc;
+}
+.search_bar .search_dropdown > span {
+  position: absolute;
+  top: 50%;
+  margin-top: -11px;
+  white-space: nowrap;
+  font-size: 15px;
+}
+.search_bar .search_dropdown ul {
+  display: none;
+  position: absolute;
+  top: 105%;
+  left: -1px;
+  font-size: 14px;
+  width: 225px;
+  background: #fff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 7px 0;
+}
+.search_bar .search_dropdown li {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px 18px;
+  color: #1C62A8;
+  line-height: 1.2em;
+  position: relative;
+}
+.search_bar .search_dropdown li:hover {
+  background: #e7e7e7;
+}
+.search_bar .search_dropdown li.selected {
+  background: #1C62A8;
+  color: #fff;
+}
+.white-back{
+	background-color:#fff;
+}
+.imgD{
+	width: 100%;
+    height: auto;
+}
+.product-row{
+    width: 30%;
+    /* height: 565px; */
+    float: left;
+    margin-right: 35px;
+    margin-bottom: 20px;
+}
+	.product-img {
+    position: relative;
+    width: 100%;
+	height:365px;
+    overflow: hidden;
+    text-align: center;
+    background: #f1f5f9;
+    -webkit-transition: background-color .15s ease-out;
+    transition: background-color .15s ease-out;
+}
+.product-img .product-logo-overlay {
+    left: 10px;
+}
+.product-img-wrap {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	background: #f1f5f9;
+}
+.ghost-center {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    font-size: 16px;
+}
+.product-img img {
+    display: block;
+    max-height: 100%;
+    max-width: 100%;
+    margin: auto;
+}
+.product-content.mlp-block {
+    border: 1px solid #e4e7eb;
+    margin-top: 0;
+}
+ .rating-link {
+    margin: 1em 0;
+    display: inline-block;
+    margin-left: -16px;
+    padding-left: 16px;
+    padding-right: 10px;
+}
+.product-meta-wrapper .product-meta {
+    margin: 0 0 0em;
+}
+.product-meta {
+    margin: 0 0 1em;
+    padding: 0 0 0 1em;
+    list-style-type: square;
+    color: #83838f;
+    min-height: 100px;
+    overflow-y: hidden;
+}
+.product-meta li {
+    margin-bottom: 2px;
+	font-size: 12px;
+    text-align: left;
+}
+.product-text{
+	background: #ffffff;
+	 border: 1px solid #e4e7eb;
+    margin-top: 0;
+	    padding: 20px 10px;
+		    text-align: left;
+}
+.product-name-wrap {
+    display: block;
+    margin: 0 -16px;
+    padding: 0 16px;
+}
+ .product-name {
+    color: #2f353d;
+    margin-bottom: 0;
+}
+ .product-model {
+    color: #83838f;
+    margin-bottom: 0;
+}
+.product-rating {
+    display: inline-block !important;
+        margin: 0 0 20px 0;
+}
+.star-holder {
+    position: relative;
+    top: .25em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+	 background: url("../images/star.png") no-repeat top left;
+}
+
+.label-success {
+        height: 20px;
+    width: 85px;
+    background: #22c083;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+	position: absolute;
+        cursor: pointer;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    margin: 0;
+}
+ .mlp-helptext {
+    padding-bottom: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #83838f;
+}
+.product-price {
+    text-align: right;
+    margin-top: 20px;
+}
+.cart-row{
+    width: 100%;
+    border:1px solid #e2e2e2;
+        float: left;
+}
+.cart-header{
+    width: 100%;
+    background: url("../images/topbar.png") repeat-x;
+    height: 40px;
+    width: 100%;
+    padding: 6px;
+    float: left;
+    border-bottom:1px solid #e2e2e2;
+}
+.cart-body{
+    width:100%;
+    float:left;
+    margin: 20px 0;
+    border-bottom:1px solid #e2e2e2;
+}
+.cartimg{
+    width:75%;
+    height:auto;
+        margin-top: -10px;
+    margin-bottom: 10px;
+}
+.cart-total{
+    background-color: #f8f8f8;
+    border:1px solid #e2e2e2;
+    float:left;
+    width: 100%;
+    font-size: 12px;
+}
+.cart-info{
+    border:1px solid #e2e2e2;
+    float:left;
+    width: 50%;
+    margin: -1px 0 0 -1px;
+    padding: 5px;
+        font-weight: bold;
+}
+.cart-text{
+     float:left;
+    width: 100%;
+    text-align: left;
+    padding: 20px 0 5px 20px;
+}
+.cart-checkout{
+    float: left;
+    margin: 10px 0 20px 25px;
+    width: 80%;
+    text-align: center;
+    padding: 5px;
+    background-color: #da3610;
+    color: #fff;
+    border-radius: 5px;
+}

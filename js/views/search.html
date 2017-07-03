@@ -1,0 +1,46 @@
+<h1 class="page-header text-center">Search Result</h1>
+<div class="col-md-12 placeholders text-center" >
+    <div class="product-row" data-ng-repeat="product in searchCtrl.productsList">
+        <div class="product-img">
+            <span class="label l3 label-success" data-ng-if="!product.isInCart" data-ng-click="product.isInCart = true;  searchCtrl.pushCartItem(product)">Add to Cart</span>
+            <span class="label l3 label-success" data-ng-if="product.isInCart">Added to Cart</span>
+            <div class="product-img-wrap">
+                <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="{{product.href}}" class="product-link-to-pdp product-url">
+                    <div class="ghost-center">
+                        <img ng-src="{{product.image}}" class="imgD">
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="product-text">
+            <div class="product-name-wrap" style="height: 83px;">
+                <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="//www.sony.com/electronics/televisions/xbr-z9d-series"
+                    class="product-link-to-pdp">
+                    <div class="product-name p2"><strong itemprop="name">{{product.name}}</strong></div>
+                    <div class="product-model l3" itemprop="model">{{product.model}}</div>
+                </a>
+            </div>
+            <div class="product-rating">
+                <span class="star-holder"></span>
+                <span class="star-holder"></span>
+                <span class="star-holder"></span>
+                <span class="star-holder"></span>
+                <span class="star-holder"></span>
+            </div>
+            <div class="product-features visible-phone">
+                <ul class="evenHeights product-meta" data-identifier="topFeatures">
+                    <li class="p4" data-ng-repeat="topFeature in product.topFeatures">
+                        <span class="product-meta-name">{{topFeature}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-widgets visible-phone">
+                <span data-favorited-title="Remove Favorite" data-default-title="Add to Favorites" data-default-clicked-title="Added" data-favorited-clicked-title="Removed"
+                    class="favorite-holder js-favorite" data-product-name="XBR Z9D Series" data-original-title="">
+                        <i class="fi fonticon-10-favorite"></i>
+                    </span>
+            </div>
+            <div class="mlp-helptext " style="height: 20px;">Model and price <strong>{{product.price}}</strong></div>
+        </div>
+    </div>
+</div>
