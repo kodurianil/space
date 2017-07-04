@@ -1,37 +1,28 @@
 <div class="container-fluid">
-   
+<!--<pre>{{landCtrl.productsList|json}}</pre>-->
     <div class="row" ui-view="">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li class="active" data-ng-repeat="menu in landCtrl.leftMenu">
-                    <a ui-sref="landing.rightcontent({leftnav:menu.id})">{{menu.name}}<span class="sr-only"></span></a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-md-10 main" ui-view="rightcontent@landing">
-        <div class="pull-left" style="width:100%">
-            <form name="searchForm" class="search_bar" data-ng-submit="searchForm.$valid && landCtrl.searchByQ()">
-                    <div class="search_dropdown" style="width: 17px;">
-                        <span>All</span>
-                    </div>
-
-                    <input data-ng-model="landCtrl.searchWord" placeholder="Search for anything" style="margin-left: 59px; width: 61.6667%;" type="text">
-
+        <div class="col-sm-12 col-md-12 main" ui-view="rightcontent@landing">
+            <div class="pull-left" style="width:100%">
+                <form name="searchForm" class="search_bar" data-ng-submit="landCtrl.searchWord1=landCtrl.searchWord;landCtrl.searchWord=''">
+                    <input data-ng-model="landCtrl.searchWord" placeholder="Search for anything" style="margin-left: 59px; width: 85.6667%;" type="text" />
                     <button type="submit" value="Search">Search</button>
-            </form>
-        </div>
-        <div class="spacer"></div>
-            <h1 class="page-header" style="margin-top:0;">Main Dashboard</h1>
+                </form>
+            </div>
+            <div class="spacer"></div>
+            <h1 class="page-header" style="margin-top:0;"></h1>
+            
             <div class="placeholders text-center">
-                <div class="product-row" data-ng-repeat="product in landCtrl.productsList">
+                <h1 class="text-left" data-ng-if="landCtrl.searchWord1.length">Search word: {{landCtrl.searchWord1}}</h1>
+                <h1 data-ng-if="!landCtrl.productsList.length">No Data Found</h1>
+                <div class="product-row" data-ng-repeat="product in landCtrl.productsList | filter:landCtrl.searchByQ">
                     <div class="product-img">
-                        <div class="product-title"><a href="{{product.href}}" >{{product.model}} </a></div>                            
+                        <!--<div class="product-title"><a href="{{product.href}}">{{product.model}} </a></div>-->
                         <span class="addtocart" data-ng-if="!product.isInCart" data-ng-click="product.isInCart = true; landCtrl.pushCartItem(product)"></span>
                         <span class="addedtocart" data-ng-if="product.isInCart"></span>
                         <div class="product-img-wrap">
                             <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="{{product.href}}" class="product-link-to-pdp product-url">
                                 <div class="ghost-center">
-                                    <img ng-src="{{product.image}}" class="imgD">
+                                    <img ng-src="{{product.images.primaryShot[0].imageFamily.images.desktop.externalUrl}}" class="imgD">
                                 </div>
                             </a>
                         </div>
@@ -40,8 +31,8 @@
                         <div class="product-name-wrap" style="height: 83px;">
                             <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="//www.sony.com/electronics/televisions/xbr-z9d-series"
                                 class="product-link-to-pdp">
-                                <div class="product-name p2"><strong itemprop="name">{{product.name}}</strong></div>
-                                <div class="product-model l3" itemprop="model">{{product.model}}</div>
+                                <div class="product-name p2"><strong itemprop="name">{{product.longMarketingProductName}}</strong></div>
+                                <div class="product-model l3" itemprop="model">{{(product.superModelName != undefined || product.superModelName != null)?product.superModelName:product.modelName}}</div>
                             </a>
                         </div>
                         <div class="product-rating">
@@ -64,7 +55,6 @@
 					            <i class="fi fonticon-10-favorite"></i>
 					        </span>
                         </div>
-                        <div class="mlp-helptext " style="height: 20px;">Model and price <strong>{{product.price}}</strong></div>
                     </div>
                 </div>
             </div>

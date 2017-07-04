@@ -14,7 +14,12 @@ ISIPApp.service("AppData", ["$timeout", function($timeout){
         cartItem.splice(index, 1);
     }
     
+    function deleteAllCartItem(){
+        cartItem.splice(0, cartItem.length);
+    }
+
     this.pushCartItem = pushCartItem;
     this.getCartItem  = getCartItem;
     this.deleteCartItem = deleteCartItem;
+    this.deleteAllCartItem = deleteAllCartItem;
 }]);

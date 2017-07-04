@@ -7,20 +7,20 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
     }.bind(this));
     this.navTabs = [
         {
-            name:"SPE",
-            id : "100"
+            name:"ELECTRONICS",
+            id : "102"
         },
         {
             name:"PLAYSTATION",
             id : "101"
         },
         {
-            name:"ELECTRONICS",
-            id : "102"
-        },
-        {
             name:"MUSIC",
             id : "103"
+        },
+        {
+            name: "PROFESSIONAL",
+            id: "104"
         }
     ];
     this.getCartItem  = AppData.getCartItem;
