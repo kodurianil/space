@@ -1,5 +1,5 @@
 var ISIPApp = angular.module("ISIPApp");
-ISIPApp.controller("headerController",["$stateParams", "$state", "$scope", "AppData", function($stateParams, $state, $scope, AppData){
+ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce", "AppData", function($stateParams, $state, $scope,$sce, AppData){
     this.currentTab = 0;
     $scope.$watch(function(){return $state.params.navTabId;}, function(newParams, oldParams){
         console.log(newParams, oldParams);
@@ -17,7 +17,26 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope", "AppD
         {
             name:"ELECTRONICS",
             id : "102"
+        },
+        {
+            name:"MUSIC",
+            id : "103"
         }
     ];
     this.getCartItem  = AppData.getCartItem;
+    this.showPopover=false;
+    
+    this.popover = {
+        title: 'Title'
+    }; 
+     this.popover.message = $sce.trustAsHtml('<b style="color: red">I can</b> have <div class="label label-success">HTML</div> content');
 }]);
+ 
+ ISIPApp.directive("cartPopover", function(){
+    return {
+    restrict: 'A',
+    templateUrl: 'js/views/cart-popover.html',
+    controller: 'headerController',
+    controllerAs: 'hc'   
+  }
+ });

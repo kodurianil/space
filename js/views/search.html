@@ -1,9 +1,20 @@
+ <div class="col-lg-8 pull-left">
+            <form name="searchForm" class="search_bar" data-ng-submit="searchForm.$valid && landCtrl.searchByQ()">
+                    <div class="search_dropdown" style="width: 17px;">
+                        <span>All</span>
+                    </div>
+
+                    <input data-ng-model="landCtrl.searchWord" placeholder="Search for anything" style="margin-left: 59px; width: 61.6667%;" type="text">
+
+                    <button type="submit" value="Search">Search</button>
+            </form>
+    </div>
+<div class="spacer"></div>
 <h1 class="page-header text-center">Search Result</h1>
-<div class="col-md-12 placeholders text-center" >
+<div class="row placeholders text-center">
     <div class="product-row" data-ng-repeat="product in searchCtrl.productsList">
         <div class="product-img">
-            <span class="label l3 label-success" data-ng-if="!product.isInCart" data-ng-click="product.isInCart = true;  searchCtrl.pushCartItem(product)">Add to Cart</span>
-            <span class="label l3 label-success" data-ng-if="product.isInCart">Added to Cart</span>
+            <span class="label l3 label-success">Add to Cart</span>
             <div class="product-img-wrap">
                 <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="{{product.href}}" class="product-link-to-pdp product-url">
                     <div class="ghost-center">

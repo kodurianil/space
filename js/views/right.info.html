@@ -2,8 +2,7 @@
 <div class="row placeholders text-center">
     <div class="product-row" data-ng-repeat="product in rightCtrl.productsList">
         <div class="product-img">
-            <span class="label l3 label-success" data-ng-if="!product.isInCart" data-ng-click="product.isInCart = true;  rightCtrl.pushCartItem(product)">Add to Cart</span>
-                        <span class="label l3 label-success" data-ng-if="product.isInCart">Added to Cart</span>
+            <span class="label l3 label-success">Add to Cart</span>
             <div class="product-img-wrap">
                 <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="{{product.href}}" class="product-link-to-pdp product-url">
                     <div class="ghost-center">

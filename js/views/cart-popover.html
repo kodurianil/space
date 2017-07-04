@@ -1,0 +1,14 @@
+<div class="mini-cart-product">
+     <div class="close" style="margin-right: 5px;" ng-click="showPopover=false;">x</div>
+    <div class=" text-center" style="font-size: 24px;" data-ng-if="!hc.getCartItem().length">
+        <span>Cart is empty.</span>
+    </div>
+
+<div class="minicart-row" data-ng-if="hc.getCartItem().length" data-ng-repeat="product in hc.getCartItem()">
+ 
+    <div class="cart-item"> <img ng-src="{{product.image}}" class="cartimg"></div>
+      <div class="product-title"><a href="{{product.href}}" >{{product.model}} </a></div>
+    <div class="cart-item"> {{product.name}} </div>
+    <div class="cart-item cart-checkout"> Preview </div>
+</div>
+</div>

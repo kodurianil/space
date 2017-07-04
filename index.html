@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link href="css/style.css" rel="stylesheet">
+     <link href="css/font-awesome.css" rel="stylesheet">
 
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/bootstrap.js"></script>
@@ -29,22 +30,27 @@
     <header data-ng-controller="headerController as hc">
         <div class="top-line"></div>
         <div class="top-bar">
+            <div style="float: left;padding: 10px 0px 0 20px;">
+                            <a href="index.html"><img src="images/Space.png" alt="LOGO"/></a>
+                        </div>
             <div class="col-lg-1 pull-right top_padding">
-                <div class="cart_icon"></div>
-                <a ui-sref="cart"><div class="ycircle">{{hc.getCartItem().length}}</div></a>
-            </div>
+                <div class="cart_icon"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
+                <a ui-sref="cart"><div class="ycircle" ng-mouseover="showPopover=true;" ng-click="showPopover=false;">{{hc.getCartItem().length}}
+                 </div></a>    
+                <div class="cart-popover"  cart-popover ng-show="showPopover"></div>                         
+             </div>
             <div class="col-lg-2 pull-right top_padding">               
                 <div class="login">Login / Register</div>
-                 <div class="login_icon"> </div>
+                <div class="login_icon"><i class="fa fa-user" style="zoom:2;margin: -1px 3px 0 0;" ></i></div>      
+                
             </div>
+             
+          
         </div>
         <div class="navbar-wrapper">
             <nav class="navbar navbar-inverse navbar-static-top">
                 <div class="container">
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <div style="float: left;padding: 20px 0px 0 0;">
-                            <a href="index.html"><img src="images/Space.png" alt="LOGO"/></a>
-                        </div>
+                    <div id="navbar" class="navbar-collapse collapse">                        
                         <ul class="nav navbar-nav">
                             <!--<li data-ng-class="{'active':hc.currentTab==0}" data-ng-click="hc.currentTab=0">
                             <a ui-sref='welcome()'>Home</a>
@@ -56,6 +62,7 @@
                     </div>
                 </div>
             </nav>
+            
         </div>
     </header>
     <div ui-view=""></div>
