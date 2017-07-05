@@ -34,8 +34,9 @@
                 <a ui-sref="welcome"><img src="images/Space.png" alt="LOGO"/></a>
             </div>
             <div class="col-lg-1 pull-right top_padding">
-                <div class="cart_icon"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
+                
                 <a ui-sref="cart">
+                    <div class="cart_icon"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
                     <div class="ycircle" ng-mouseover="showPopover=true;" ng-click="showPopover=false;">{{hc.getCartItem().length}}
                     </div>
                 </a>
@@ -53,9 +54,6 @@
                 <div class="container">
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <!--<li data-ng-class="{'active':hc.currentTab==0}" data-ng-click="hc.currentTab=0">
-                            <a ui-sref='welcome()'>Home</a>
-                        </li>-->
                             <li data-ng-repeat="navTab in hc.navTabs" data-ng-class="{'active':navTab.id==hc.currentTab}" data-ng-click="hc.currentTab=navTab.id">
                                 <a ui-sref="landing({navTabId:navTab.id})">{{navTab.name}}</a>
                             </li>
