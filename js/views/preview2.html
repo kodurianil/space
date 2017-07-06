@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+	<link href="../css/styles-impress.css" rel="stylesheet" />
+</head>
+
+<body>
+
+	<div class="fallback-message">
+		<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+		<p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+	</div>
+    
+	<div id="impress">    
+	</div>
+    <div class="btn btn-primary"> <a ui-sref="cart" class="cart-preview">Back</a></div>
+
+
+
+<script>
+ console.log("==>", window.cartSlide.slides);   
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+ 
+//angular.element(document.querySelector('[ng-controller="previewController"]')).scope().productsList;
+
+var slides =window.cartSlide.slides;
+var text = "";
+var i;
+var j=50;
+var k=100;
+console.log("length ",slides.length)
+for (i = 0; i < slides.length; i++) {
+var object = slides[i];
+var iDiv = document.createElement('div');
+var iDiv1 = document.createElement('div');
+var iDiv2 = document.createElement('div');
+var iDiv3 = document.createElement('div');
+var iDiv4 = document.createElement('div');
+
+var x = document.createElement("IMG");
+iDiv.id = 'step-'+i;
+iDiv.className = 'step slide';
+iDiv.style.cssText="margin-top:20%;";
+iDiv2.className = 'preview-label';
+iDiv3.className = 'preview-label';
+iDiv.setAttribute("data-x", j+1000); 
+iDiv.setAttribute("data-y", j+2000); 
+iDiv.setAttribute("data-rotate",-90);
+for (var property in object) {
+    if(property=="modelName"){
+            iDiv2.innerHTML = "Model:  "+object[property];
+    }else if(property=="topFeatures"){
+        iDiv3.innerHTML = "Specs: "+object[property];
+    }else if(property=="images"){
+        x.setAttribute("src", object[property].primaryShot[0].imageFamily.images.desktop.externalUrl);
+    }
+        
+        iDiv.appendChild(iDiv2);
+        iDiv.appendChild(iDiv3);
+        
+        iDiv.appendChild(x);
+    }
+
+document.getElementById('impress').appendChild(iDiv);
+j=j+1000;
+
+}
+
+</script>
+
+
+<script src="../js/lib/impress.js"></script>
+<script>impress();</script>
+</body>
+</html>

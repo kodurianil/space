@@ -1,18 +1,19 @@
 var ISIPApp = angular.module("ISIPApp");
 ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce", "AppData", function($stateParams, $state, $scope,$sce, AppData){
     this.currentTab = 0;
+    $state.go("welcome");
     $scope.$watch(function(){return $state.params.navTabId;}, function(newParams, oldParams){
-        console.log(newParams, oldParams);
         this.currentTab = angular.isDefined($state.params.navTabId)? parseInt($state.params.navTabId) : 0;
     }.bind(this));
+
     this.navTabs = [
         {
-            name:"ELECTRONICS",
-            id : "102"
+            name:"ELECTRONICS - T.V",
+            id : "101"
         },
         {
-            name:"PLAYSTATION",
-            id : "101"
+            name:"ELECTRONICS - CAMERA",
+            id : "102"
         },
         {
             name:"MUSIC",
@@ -21,8 +22,17 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
         {
             name: "PROFESSIONAL",
             id: "104"
+        },
+        {
+            name: "PLAYSTATION",
+            id: "105"
+        },
+        {
+            name: "PICTURES",
+            id: "106"
         }
     ];
+
     this.getCartItem  = AppData.getCartItem;
     this.showPopover=false;
     

@@ -1,19 +1,25 @@
 <div class="container-fluid">
-<!--<pre>{{landCtrl.productsList|json}}</pre>-->
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <form name="searchForm" class="search_bar" data-ng-submit="landCtrl.searchWord1=landCtrl.searchWord;landCtrl.searchWord=''">
+                <div class="">
+                <input data-ng-model="landCtrl.searchWord" placeholder="Search for anything"
+                    type="text" />
+                <button type="submit" value="Search">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="spacer"></div>
     <div class="row" ui-view="">
         <div class="col-sm-12 col-md-12 main" ui-view="rightcontent@landing">
-            <div class="pull-left" style="width:100%">
-                <form name="searchForm" class="search_bar" data-ng-submit="landCtrl.searchWord1=landCtrl.searchWord;landCtrl.searchWord=''">
-                    <input data-ng-model="landCtrl.searchWord" placeholder="Search for anything" style="margin-left: 59px; width: 85.6667%;" type="text" />
-                    <button type="submit" value="Search">Search</button>
-                </form>
-            </div>
-            <div class="spacer"></div>
+
             <h1 class="page-header" style="margin-top:0;"></h1>
-            
+
             <div class="placeholders text-center">
                 <h1 class="text-left" data-ng-if="landCtrl.searchWord1.length">Search word: {{landCtrl.searchWord1}}</h1>
-                <h1 data-ng-if="!landCtrl.productsList.length">No Data Found</h1>
+                <h1 data-ng-if="landCtrl.loadingData && !landCtrl.productsList.length">Loading Products</h1>
+                <h1 data-ng-if="!landCtrl.loadingData && !landCtrl.productsList.length">No Data Found</h1>
                 <div class="product-row" data-ng-repeat="product in landCtrl.productsList | filter:landCtrl.searchByQ">
                     <div class="product-img">
                         <!--<div class="product-title"><a href="{{product.href}}">{{product.model}} </a></div>-->
@@ -29,18 +35,11 @@
                     </div>
                     <div class="product-text">
                         <div class="product-name-wrap" style="height: 83px;">
-                            <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="//www.sony.com/electronics/televisions/xbr-z9d-series"
+                            <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="#"
                                 class="product-link-to-pdp">
                                 <div class="product-name p2"><strong itemprop="name">{{product.longMarketingProductName}}</strong></div>
                                 <div class="product-model l3" itemprop="model">{{(product.superModelName != undefined || product.superModelName != null)?product.superModelName:product.modelName}}</div>
                             </a>
-                        </div>
-                        <div class="product-rating">
-                            <span class="star-holder"></span>
-                            <span class="star-holder"></span>
-                            <span class="star-holder"></span>
-                            <span class="star-holder"></span>
-                            <span class="star-holder"></span>
                         </div>
                         <div class="product-features visible-phone">
                             <ul class="evenHeights product-meta" data-identifier="topFeatures">
@@ -49,12 +48,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="product-widgets visible-phone">
-                            <span data-favorited-title="Remove Favorite" data-default-title="Add to Favorites" data-default-clicked-title="Added" data-favorited-clicked-title="Removed"
-                                class="favorite-holder js-favorite" data-product-name="XBR Z9D Series" data-original-title="">
-					            <i class="fi fonticon-10-favorite"></i>
-					        </span>
-                        </div>
+                        <div class="product-elevator-pitch" itemprop="pitch">{{product.elevatorPitch}}</div>
                     </div>
                 </div>
             </div>

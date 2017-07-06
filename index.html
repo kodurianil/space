@@ -5,11 +5,12 @@
     <title>SPACE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    
     <link href="css/style.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
-
+    
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/bootstrap.js"></script>
 
@@ -24,19 +25,27 @@
     <script src="js/app/search.controller.js"></script>
     <script src="js/app/cart/cart.controller.js"></script>
     <script src="js/app/cart/cart.service.js"></script>
+
+    <!--<script src="js/lib/impress.js"></script>-->
+        <script>
+            var  cartSlide  =  {};
+            cartSlide.slides  = [2];
+        </script>
 </head>
 
-<body data-ng-app="ISIPApp">
+<body data-ng-app="ISIPApp" id="bodyISIPApp">
     <header data-ng-controller="headerController as hc">
         <div class="top-line"></div>
         <div class="top-bar">
-            <div style="float: left;padding: 10px 0px 0 20px;">
-                <a ui-sref="welcome"><img src="images/Space.png" alt="LOGO"/></a>
+            <div style="float: left;padding: 10px 0px 0 20px;height:100%">
+                <a style="height: 100%;width: 100%;" ui-sref="welcome">
+                    <img src="images/Space.png" alt="LOGO" style="width: 100%;"/>
+                </a>
             </div>
             <div class="col-lg-1 pull-right top_padding">
-                
+
                 <a ui-sref="cart">
-                    <div class="cart_icon"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
+                    <div class="cart_icon" ng-mouseover="showPopover=true;" ng-click="showPopover=false;"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
                     <div class="ycircle" ng-mouseover="showPopover=true;" ng-click="showPopover=false;">{{hc.getCartItem().length}}
                     </div>
                 </a>
@@ -64,7 +73,7 @@
 
         </div>
     </header>
-    <div ui-view=""></div>
+    <div ui-view="" style="min-width:400px;"></div>
     <footer></footer>
 </body>
 

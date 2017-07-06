@@ -19,12 +19,16 @@
                         <div class="col-sm-2">&nbsp;</div>
                     </div>
                     <div class="cart-body" data-ng-repeat="product in cartCtrl.productsList">
-                        <div class="col-sm-3"> <img ng-src="{{product.images.primaryShot[0].imageFamily.images.desktop.externalUrl}}" class="cartimg"></div>
-                        <div class="col-sm-4">{{(product.superModelName != undefined || product.superModelName != null)?product.superModelName:product.modelName}}</div>
+                        <div class="col-sm-3">
+                             <img ng-src="{{product.images.primaryShot[0].imageFamily.images.desktop.externalUrl}}" class="cartimg">
+                        </div>
+                        <div class="col-sm-4">
+                            <label>{{(product.superModelName != undefined || product.superModelName != null)?product.superModelName:product.modelName}}</label>    
+                        </div>
                         <div class="col-sm-3">
                             <ul class="evenHeights product-meta" data-identifier="topFeatures">
                                 <li class="p4" data-ng-repeat="topFeature in product.topFeatures">
-                                    <span class="product-meta-name">{{topFeature}}</span>
+                                    <span class="cart-specs">{{topFeature}}</span>
                                 </li>
                             </ul>
 
@@ -40,23 +44,11 @@
 
             <div class="col-lg-3">
                 <div class="cart-total">
-                    <div class="cart-info"> Cart Info </div>
-                    <div class="cart-text"> Total Products </div>
-                    <div class="cart-checkout"> Preview </div>
+                    <div class="cart-info"> Preview Presentation </div>
+                    <div class="cart-text"> Total Products: {{cartCtrl.productsList.length}}</div>
+                    <div><button ui-sref="preview1" class="cart-checkout  btn btn-danger cart-preview">Template 1</button></div>
+                    <div><button ui-sref="preview2" class="cart-checkout  btn btn-danger cart-preview">Template 2</button></div>
                 </div>
-
-                <div class="cart-row">
-                    <div class="cart-header">Other Items</div>
-                    <div class="cart-body">
-                        <div class="col-sm-12">
-                            <img ng-src="images/imageControllersmall.jpg" class="cartimg">
-                            <br><br> XBR Z9D Series
-                            <br><br>Z9D | LED | 4K Ultra HD | High Dynamic Range (HDR) | Smart TV (Android TV™)
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
         </div>
 
