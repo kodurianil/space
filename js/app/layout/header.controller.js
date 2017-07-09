@@ -1,7 +1,7 @@
 var ISIPApp = angular.module("ISIPApp");
 ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce", "AppData", function($stateParams, $state, $scope,$sce, AppData){
     this.currentTab = 0;
-    // $state.go("welcome");
+    
     if(angular.isDefined($stateParams.preferredLanguage)){
         this.preferredLanguage = $stateParams.preferredLanguage;
     } else {
@@ -10,6 +10,9 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
     
     $scope.$watch(function(){return $state.params.navTabId;}, function(newParams, oldParams){
         this.currentTab = angular.isDefined($state.params.navTabId)? parseInt($state.params.navTabId) : 0;
+        if(!this.currentTab){
+            $state.go("welcome");
+        }
     }.bind(this));
     this.navChildTabs = [];
     this.navTabs = [

@@ -3,40 +3,27 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
     this.loadingData = true;
     this.searchWord = "";
     this.searchWord1 = "";
+    this.productsList = [];
     // console.log(AppData.preferredLanguage);
-    $http.get("http://usdl013:8983/solr/space2/select?wt=json&q=locale%3A"+AppData.preferredLanguage)
+    $http.get("http://localhost:8983/solr/space2/select?wt=json&q=locale%3A"+AppData.preferredLanguage)
     .then(function(response){
         this.productsList = response.data.response.docs;
     }.bind(this), function(error){
         this.productsList = [];
+        this.loadingData = false;
     }.bind(this));
     // this.productsList = AppData.getProductsList($stateParams.navTabId);
-    this.loadingData = false;
-    this.searchByQ = function(product){
-        this.searchWord1 = this.searchWord1.toLowerCase()
-        if(!this.searchWord1.length){
-            return true;
-        }
-        if((angular.isDefined(product.superModelName) && product.superModelName.toLowerCase().indexOf(this.searchWord1) > -1)){
-            return true;
-        }
-        if(angular.isDefined(product.modelName) && product.modelName.toLowerCase().indexOf(this.searchWord1) > -1){
-            return true;
-        }
-        if(angular.isDefined(product.longMarketingProductName) && product.longMarketingProductName.toLowerCase().indexOf(this.searchWord1) > -1){
-            return true;
-        }
-        if(angular.isDefined(product.topFeatures)){
-            var res = false;
-            angular.forEach(product.topFeatures, function(feature){
-                console.log(feature.toLowerCase(),this.searchWord1);
-                if(!res && feature.toLowerCase().indexOf(this.searchWord1) > -1){
-                    res = true;
-                }
-            }.bind(this));
-            return res;
-        }
-        return false;
+    this.searchByQ = function(){
+        this.loadingData = true;
+        this.searchWord1 = this.searchWord1.replace(/\s+/g, '\\ ').toLowerCase();
+        $http.get("http://localhost:8983/solr/space2/select?wt=json&indent=true&q=mainCategory:televisions+AND+locale:"+AppData.preferredLanguage+"+AND+fullProductInfo:*"+this.searchWord1+"*&facet=true&facet.field=tvFeatures&facet.field=tvType&facet.field=tvScreenSize&facet.mincount=1")
+        .then(function(response){
+            this.loadingData = false;
+            this.productsList = response.data.response.docs;
+        }.bind(this), function(error){
+            this.productsList = [];
+            this.loadingData = false;
+        }.bind(this));
     }.bind(this);
     
     this.pushCartItem = AppData.pushCartItem;
