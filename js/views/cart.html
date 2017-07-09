@@ -20,7 +20,7 @@
                     </div>
                     <div class="cart-body" data-ng-repeat="product in cartCtrl.productsList">
                         <div class="col-sm-3">
-                             <img ng-src="{{product.images.primaryShot[0].imageFamily.images.desktop.externalUrl}}" class="cartimg">
+                             <img ng-src="{{product.imagesPrimaryShot[0]}}" class="cartimg">
                         </div>
                         <div class="col-sm-4">
                             <label>{{(product.superModelName != undefined || product.superModelName != null)?product.superModelName:product.modelName}}</label>    

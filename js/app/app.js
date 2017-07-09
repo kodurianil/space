@@ -19,7 +19,7 @@ ISIPApp.config(['$stateProvider', '$urlRouterProvider', "$httpProvider", "$locat
             }
         })
             .state("landing", {
-                url: "/landing/:navTabId",
+                url: "/landing/:navTabId/:lang",
                 views: {
                     "@": {
                         templateUrl: 'js/views/landing.html',
@@ -77,6 +77,6 @@ ISIPApp.config(['$stateProvider', '$urlRouterProvider', "$httpProvider", "$locat
     }
 ])
     .run(["AppData", function (AppData) {
-        AppData.setProductsList();
+        // AppData.setProductsList();
         $("#bodyISIPApp").css("overflow","auto");
     }]);

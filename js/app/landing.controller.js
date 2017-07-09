@@ -3,7 +3,14 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
     this.loadingData = true;
     this.searchWord = "";
     this.searchWord1 = "";
-    this.productsList = AppData.getProductsList($stateParams.navTabId);
+    // console.log(AppData.preferredLanguage);
+    $http.get("http://usdl013:8983/solr/space2/select?wt=json&q=locale%3A"+AppData.preferredLanguage)
+    .then(function(response){
+        this.productsList = response.data.response.docs;
+    }.bind(this), function(error){
+        this.productsList = [];
+    }.bind(this));
+    // this.productsList = AppData.getProductsList($stateParams.navTabId);
     this.loadingData = false;
     this.searchByQ = function(product){
         this.searchWord1 = this.searchWord1.toLowerCase()

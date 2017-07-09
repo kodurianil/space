@@ -5,12 +5,12 @@
     <title>SPACE</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    
+
     <link href="css/style.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
-    
+
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/bootstrap.js"></script>
 
@@ -27,10 +27,10 @@
     <script src="js/app/cart/cart.service.js"></script>
 
     <!--<script src="js/lib/impress.js"></script>-->
-        <script>
-            var  cartSlide  =  {};
-            cartSlide.slides  = [2];
-        </script>
+    <script>
+        var cartSlide = {};
+        cartSlide.slides = [2];
+    </script>
 </head>
 
 <body data-ng-app="ISIPApp" id="bodyISIPApp">
@@ -43,11 +43,9 @@
                 </a>
             </div>
             <div class="col-lg-1 pull-right top_padding">
-
                 <a ui-sref="cart">
                     <div class="cart_icon" ng-mouseover="showPopover=true;" ng-click="showPopover=false;"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
-                    <div class="ycircle" ng-mouseover="showPopover=true;" ng-click="showPopover=false;">{{hc.getCartItem().length}}
-                    </div>
+                    <div class="ycircle" ng-mouseover="showPopover=true;" ng-click="showPopover=false;">{{hc.getCartItem().length}}</div>
                 </a>
                 <div class="cart-popover" cart-popover ng-show="showPopover"></div>
             </div>
@@ -55,7 +53,15 @@
                 <div class="login">Login / Register</div>
                 <div class="login_icon"><i class="fa fa-user" style="zoom:2;margin: -1px 3px 0 0;"></i></div>
             </div>
-
+            <div class="col-lg-2 pull-right top_padding">
+                <div class="lang-lable">Lang</div>
+                <div class="lang-slect">
+                    <select id="userLanguage" data-ng-model="hc.preferredLanguage" data-ng-change="hc.onPreferredLanguage()" class="language">
+                        <option value="en_IN">English (India)</option>
+                        <option value="es_ES">Spanish (Spain)</option>
+                    </select>
+                </div>
+            </div>
 
         </div>
         <div class="navbar-wrapper">
@@ -63,14 +69,25 @@
                 <div class="container">
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
-                            <li data-ng-repeat="navTab in hc.navTabs" data-ng-class="{'active':navTab.id==hc.currentTab}" data-ng-click="hc.currentTab=navTab.id">
-                                <a ui-sref="landing({navTabId:navTab.id})">{{navTab.name}}</a>
+                            <li data-ng-repeat="navTab in hc.navTabs" data-ng-class="{'active':navTab.id==hc.currentTab}" data-ng-click="hc.currentTab=navTab.id;hc.loadChildNav(navTab.child)">
+                                <a ng-if="!navTab.child" ui-sref="landing({navTabId:navTab.id,lang:hc.preferredLanguage})">{{navTab.name}}</a>
+                                <a ng-if="navTab.child">{{navTab.name}}</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
+        </div>
 
+        <div class="container" ng-if="hc.navChildTabs.length">
+            <ul class="col-md-12 list-inline">
+                <li class="nav-child" data-ng-repeat="child in hc.navChildTabs">
+                    <a ui-sref="landing({navTabId:child.id,lang:hc.preferredLanguage})">
+                        <img id="{{'child'+$index}}" ng-src="{{child.image}}" alt="child.name" />
+                        <h4 class="text-center" for="{{'child'+$index}}">{{child.name}}</h4>
+                    </a>
+                </li>
+            </ul>
         </div>
     </header>
     <div ui-view="" style="min-width:400px;"></div>

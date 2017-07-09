@@ -6,7 +6,7 @@
 
 <div class="minicart-row" data-ng-if="hc.getCartItem().length" data-ng-repeat="product in hc.getCartItem()">
     <div class="cart-item">
-        <img ng-src="{{product.images.primaryShot[0].imageFamily.images.desktop.externalUrl}}" class="minicart-img">
+        <img ng-src="{{product.imagesPrimaryShot[0]}}" class="minicart-img">
         <label class="minicart-item"> {{(product.superModelName != undefined || product.superModelName != null)?product.superModelName:product.modelName}} </label>
     </div>
 </div>

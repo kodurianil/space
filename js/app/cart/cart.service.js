@@ -11,6 +11,7 @@ ISIPApp.service("AppData", ["$timeout","$http", function($timeout, $http){
         "101": "TV",
         "102": "Camera"
     }
+    this.preferredLanguage = "en_IN";
     function setProductsList(){
         angular.forEach(jsonList, function(products, id){
             productsList[id] = [];
