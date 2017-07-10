@@ -586,3 +586,23 @@
 .cart-preview{
     color: white !important;
 }
+.preview-title{
+	font-style:bold;
+	background-color:#fcfcfc;
+	float:left;
+	padding: 5px 10px;
+	color: #b10836;
+	border-bottom: 2px solid #999;
+	width:100%;
+}
+.preview-image{
+	width:100%;
+	height:auto;
+}
+.preview-desc{
+	float:left;
+	font-size: 22px;
+}
+.step ul{
+	float:left;	
+}

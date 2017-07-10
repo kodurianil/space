@@ -4,7 +4,7 @@
 <head>
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
         rel="stylesheet" />
-    <link href="../css/styles-impress.css" rel="stylesheet" />
+    <link href="css/styles-impress.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -32,19 +32,31 @@
 
         var slides = window.cartSlide.slides;
         var text = "";
-        var i;
+        var i; 
         var j = 50;
         var k = 100;
         console.log("length ", slides.length)
         for (i = 0; i < slides.length; i++) {
+			var p = 'a';
             var object = slides[i];
-            var iDiv = document.createElement('div');
+			var iDiv = document.createElement('div');
             var iDiv1 = document.createElement('div');
             var iDiv2 = document.createElement('div');
             var iDiv3 = document.createElement('div');
             var iDiv4 = document.createElement('div');
+			
+			var iDiv11 = document.createElement('div');
+            var iDiv12 = document.createElement('div');
+            var iDiv13 = document.createElement('div');
+            var iDiv14 = document.createElement('div');
+			var iDiv110 = document.createElement('div');
+			
+			var ul=document.createElement('ul');
+			var ul1=document.createElement('ul');
+			var li=document.createElement('li');
+			
             var x = document.createElement("IMG");
-            iDiv.id = 'step-' + i;
+           /* iDiv.id = 'step-' + i;
             iDiv.className = 'step slide';
             iDiv.style.cssText = "margin-top:20%;";
             iDiv2.className = 'preview-label';
@@ -52,6 +64,7 @@
             iDiv.setAttribute("data-x", j + 1000);
             iDiv.setAttribute("data-y", j + 3000);
             iDiv.setAttribute("data-rotate", j);
+			
             for (var property in object) {
                 if (property == "modelName") {
                     iDiv2.innerHTML = "Model:  " + object[property];
@@ -66,15 +79,135 @@
 
                 iDiv.appendChild(x);
             }
-            document.getElementById('impress').appendChild(iDiv);
+			*/
+			
+			
+					iDiv10 = document.createElement('div');
+					iDiv11 = document.createElement('div');
+					iDiv12 = document.createElement('div');
+					iDiv13 = document.createElement('div');
+					iDiv14 = document.createElement('div');
+					iDiv10.id = 'step-' + i + "a";
+					iDiv10.className = 'step slide';
+					iDiv10.style.cssText = "margin-top:20%;";
+					iDiv11.className = 'preview-title';
+					iDiv12.className = 'preview-image';
+					iDiv13.className = 'preview-label';
+					iDiv14.className = 'preview-desc';
+					iDiv10.setAttribute("data-x", j + 1000);
+					iDiv10.setAttribute("data-y", j + 3000);
+					iDiv10.setAttribute("data-rotate", j);
+					for (var property in object) {
+						if (property == "longMarketingProductName") {
+							iDiv11.innerHTML = "Title:  " + object[property];
+						} else if (property == "images") {
+							//x.setAttribute("src", object[property].primaryShot[0].imageFamily.images.desktop.externalUrl);
+							x.setAttribute("src", "//sonyglobal.scene7.com/is/image/gwtprod/a9a1a4facfa90abf80b09ac5d1509de7?fmt=png-alpha");
+							iDiv12.innerHTML = x;
+						}else if (property == "elevatorPitch") {
+							iDiv13.innerHTML = object[property];
+						}else if (property == "longDescription") {
+							iDiv14.innerHTML = object[property];
+						} 
+						iDiv10.appendChild(iDiv11);
+						iDiv10.appendChild(iDiv12);
+						iDiv10.appendChild(iDiv13);
+						iDiv10.appendChild(iDiv14);
+						iDiv10.appendChild(x);
+					}
+					
+						iDiv100 = document.createElement('div');
+						iDiv11 = document.createElement('div');
+						iDiv12 = document.createElement('div');
+						iDiv100.id = 'step-' + i + "b";
+						iDiv100.className = 'step slide';
+						iDiv100.style.cssText = "margin-top:20%;";
+						iDiv11.className = 'preview-title';
+						iDiv100.setAttribute("data-x", j + 2000);
+						iDiv100.setAttribute("data-y", j + 6000);
+						iDiv100.setAttribute("data-rotate", j);
+						iDiv11.innerHTML = "Specification and Features : ";
+						for (var property in object) {
+							if (property == "topFeatures") {
+								for (var a=0; a<object[property].length; a++){
+									var li=document.createElement('li');
+									ul.appendChild(li);
+									li.innerHTML=li.innerHTML + object[property][a];
+								}
+							} 
+							iDiv100.appendChild(iDiv11);
+							iDiv100.appendChild(ul);
+						}
+					
+						iDiv101 = document.createElement('div');
+						iDiv102 = document.createElement('div');
+						iDiv103 = document.createElement('div');
+						iDiv101.id = 'step-' + i + "c";
+						iDiv101.className = 'step slide';
+						iDiv101.style.cssText = "margin-top:20%;";
+						iDiv101.setAttribute("data-x", j + 4000);
+						iDiv101.setAttribute("data-y", j + 9000);
+						iDiv101.setAttribute("data-rotate", j);
+						iDiv102.className = 'preview-title';						
+						iDiv102.innerHTML = "Features : ";
+						iDiv103.className = 'preview-desc';						
+						
+						for (var property in object) {
+							if (property == "ecoFeatures") {
+							for (var a=0; a<object[property].length; a++){
+								var span = document.createElement('span');
+								var span1 = document.createElement('span');
+								span.innerHTML=span.innerHTML + "<img src='http:////sonyglobal.scene7.com/is/image/gwtprod/3985069a7c1d6f95b717fff468aceb98?fmt=png-alpha'>";
+								span1.innerHTML=span1.innerHTML + object[property];
+								 iDiv103.appendChild(span);
+								// iDiv103.appendChild(span1);
+								}
+							} 
+							iDiv101.appendChild(iDiv102);
+							iDiv101.appendChild(iDiv103);
+						}
+					/*
+					else {
+					for (var property in object) {
+							if (property == "modelName") {
+								iDiv2.innerHTML = "Model:  " + object[property];
+							} else if (property == "topFeatures") {
+								iDiv3.innerHTML = "Specs: " + object[property];
+							} else if (property == "images") {
+								x.setAttribute("src", object[property].primaryShot[0].imageFamily.images.desktop.externalUrl);
+							}
+
+							iDiv.appendChild(iDiv2);
+							iDiv.appendChild(iDiv3);
+
+							iDiv.appendChild(x);
+						}
+					}
+					*/
+			
+			
+			
+			//document.getElementById('impress').appendChild(iDiv);
+			document.getElementById('impress').appendChild(iDiv10);
+            document.getElementById('impress').appendChild(iDiv100);
+			document.getElementById('impress').appendChild(iDiv101);
             j = j + 1000;
+			p++;
 
         }
 
     </script>
 
+	<div id="step-2" class="step slide active" data-x="1050" data-y="3050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(1050px, 3050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+	<div class="preview-title">Z9D | LED | 4K Ultra HD | High Dynamic Range (HDR) | Smart TV (Android TV™)</div>
+	<div class="preview-image"><img ng-src="//sonyglobal.scene7.com/is/image/gwtprod/a9a1a4facfa90abf80b09ac5d1509de7?fmt=png-alpha" class="cartimg"></div>
+	<div class="preview-label">4K Ultra HD TV with 4K HDR Processor X1™ Extreme and Backlight Master Drive™</div>
+	<div class="preview-desc">Experience the most stunning picture with the ZD9 4K HDR Android TV, featuring the 4K HDR Processor X1 Extreme and the LED Backlight Master Drive. Explore here.</div>
+	<img>
+	</div>
+	
 
-    <script src="/../js/lib/impress.js"></script>
+    <script src="js/lib/impress.js"></script>
     <script>
         impress();
     </script>
