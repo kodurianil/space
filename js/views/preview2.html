@@ -1,78 +1,200 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-	<link href="css/styles-impress.css" rel="stylesheet" />
-</head>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic"
+ rel="stylesheet" />
+<link href="css/styles-impress.css" rel="stylesheet" />
+<style>
+	header {
+		display: none;
+	}
+</style>
+<div class="fallback-message">
+	<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version
+		of this presentation.</p>
+	<p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
 
-<body>
+<div id="impress">
+</div>
+<div class="btn btn-primary"> <a ui-sref="cart" class="cart-preview">Back</a></div>
 
-	<div class="fallback-message">
-		<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-		<p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-	</div>
-    
-	<div id="impress">    
-	</div>
-    <div class="btn btn-primary"> <a ui-sref="cart" class="cart-preview">Back</a></div>
 
 
 
 <script>
- console.log("==>", window.cartSlide.slides);   
-if ("ontouchstart" in document.documentElement) { 
-    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-}
- 
-//angular.element(document.querySelector('[ng-controller="previewController"]')).scope().productsList;
+	console.log("==>", window.cartSlide.slides);
+	if ("ontouchstart" in document.documentElement) {
+		document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+	}
 
-var slides =window.cartSlide.slides;
-var text = "";
-var i;
-var j=50;
-var k=100;
-console.log("length ",slides.length)
-for (i = 0; i < slides.length; i++) {
-var object = slides[i];
-var iDiv = document.createElement('div');
-var iDiv1 = document.createElement('div');
-var iDiv2 = document.createElement('div');
-var iDiv3 = document.createElement('div');
-var iDiv4 = document.createElement('div');
+	//angular.element(document.querySelector('[ng-controller="previewController"]')).scope().productsList;
 
-var x = document.createElement("IMG");
-iDiv.id = 'step-'+i;
-iDiv.className = 'step slide';
-iDiv.style.cssText="margin-top:20%;";
-iDiv2.className = 'preview-label';
-iDiv3.className = 'preview-label';
-iDiv.setAttribute("data-x", j+1000); 
-iDiv.setAttribute("data-y", j+2000); 
-iDiv.setAttribute("data-rotate",-90);
-for (var property in object) {
-    if(property=="modelName"){
-            iDiv2.innerHTML = "Model:  "+object[property];
-    }else if(property=="topFeatures"){
-        iDiv3.innerHTML = "Specs: "+object[property];
-    }else if(property=="images"){
-        x.setAttribute("src", object[property].primaryShot[0].imageFamily.images.desktop.externalUrl);
-    }
-        
-        iDiv.appendChild(iDiv2);
-        iDiv.appendChild(iDiv3);
-        
-        iDiv.appendChild(x);
-    }
+	var slides = window.cartSlide.slides;
+	var text = "";
+	var i;
+	var j = 50;
+	var k = 100;
+	for (i = 0; i < slides.length; i++) {
+		var p = 'a';
+		var object = slides[i];
+		var iDiv = document.createElement('div');
+		var iDiv1 = document.createElement('div');
+		var iDiv2 = document.createElement('div');
+		var iDiv3 = document.createElement('div');
+		var iDiv4 = document.createElement('div');
 
-document.getElementById('impress').appendChild(iDiv);
-j=j+1000;
+		var iDiv11 = document.createElement('div');
+		var iDiv12 = document.createElement('div');
+		var iDiv13 = document.createElement('div');
+		var iDiv14 = document.createElement('div');
+		var iDiv110 = document.createElement('div');
 
-}
+		var ul = document.createElement('ul');
+		var ul1 = document.createElement('ul');
+		var li = document.createElement('li');
 
+		var x = document.createElement("IMG");
+		iDivStart = document.createElement('div');
+		iDivStart.id = 'step-' + i + "x";
+		iDivStart.className = 'step slide slideTitle';
+		iDivStart.style.cssText = "margin-top:20%;";
+		iDivStarttitle = document.createElement('div');
+		iDivStarttitle.className = 'slideTitle';
+		var pro = "PRODUCT";
+		iDivStarttitle.innerHTML = pro;
+		iDivStart.appendChild(iDivStarttitle);
+		document.getElementById('impress').appendChild(iDivStart);
+		iDiv10 = document.createElement('div');
+		iDiv11 = document.createElement('div');
+		iDiv12 = document.createElement('div');
+		iDiv13 = document.createElement('div');
+		iDiv14 = document.createElement('div');
+		iDiv10.id = 'step-' + i + "a";
+		iDiv10.className = 'step slide';
+		iDiv10.style.cssText = "margin-top:20%;";
+		iDiv11.className = 'preview-title';
+		iDiv12.className = 'preview-image';
+		iDiv13.className = 'preview-label';
+		iDiv14.className = 'preview-desc';
+		iDiv10.setAttribute("data-x", j + 1000);
+		iDiv10.setAttribute("data-y", j + 3000);
+		iDiv10.setAttribute("data-rotate", j);
+		for (var property in object) {
+			if (property == "longMarketingProductName") {
+				iDiv11.innerHTML = "Title:  " + object[property];
+			} else if (property == "imagesPrimaryShot") {
+				x.setAttribute("src", object[property][0]);
+				iDiv12.appendChild(x);
+			} else if (property == "elevatorPitch") {
+				iDiv13.innerHTML = object[property];
+			} else if (property == "longDescription") {
+				iDiv14.innerHTML = object[property];
+			}
+			iDiv10.appendChild(iDiv11);
+			iDiv12.appendChild(x);
+			iDiv10.appendChild(iDiv12);
+			iDiv10.appendChild(iDiv13);
+			iDiv10.appendChild(iDiv14);
+		}
+
+		iDiv100 = document.createElement('div');
+		iDiv11 = document.createElement('div');
+		iDiv12 = document.createElement('div');
+		iDiv100.id = 'step-' + i + "b";
+		iDiv100.className = 'step slide';
+		iDiv100.style.cssText = "margin-top:20%;";
+		iDiv100.setAttribute("data-x", j + 2000);
+		iDiv100.setAttribute("data-y", j + 6000);
+		iDiv100.setAttribute("data-rotate", j);
+		iDiv11.className = 'preview-title';
+		iDiv11.innerHTML = "Specification and Features : ";
+		iDiv100.appendChild(iDiv11);
+		for (var property in object) {
+			if (property == "longDescription") {
+				iDiv12.className = 'preview-subhead';
+				iDiv12.innerHTML = object[property];
+				iDiv100.appendChild(iDiv12);
+			}
+			if (property == "featureIcons") {
+				for (var a = 0; a < object[property].length; a++) {
+					var divs = document.createElement('div');
+					divs.className = 'class50';
+					divs.innerHTML = "<img src='images/star.png' style='margin-right:10px; width: auto;zoom: 2;' >" + object[property][a];
+					iDiv100.appendChild(divs);
+				}
+			}
+		}
+
+		iDiv101 = document.createElement('div');
+		iDiv102 = document.createElement('div');
+
+		iDiv101.id = 'step-' + i + "c";
+		iDiv101.className = 'step slide';
+		iDiv101.style.cssText = "margin-top:20%;";
+		iDiv101.setAttribute("data-x", j + 4000);
+		iDiv101.setAttribute("data-y", j + 9000);
+		iDiv101.setAttribute("data-rotate", j);
+		iDiv102.className = 'preview-title';
+		iDiv102.innerHTML = "FEATURES ";
+		iDiv101.appendChild(iDiv102);
+		var k = 0; var f = 0; var g = 0;
+		iDiv103 = document.createElement('div');
+		iDiv103.className = 'colcount';
+		for (var property in object) {
+			if (property == "featureBenefits") {
+				for (var a = 0; a < object[property].length; a++) {
+
+					if (g == 3 || g == 7 || g == 11) {
+						var y = document.createElement("IMG");
+						iDiv104 = document.createElement('div');
+						iDiv104.className = 'preview-image';
+						var str = object[property][a];
+						str = str.replace('|| ', '');
+						str = str.replace(/ /g, '')
+						y.setAttribute("src", str);
+						iDiv104.appendChild(y);
+						iDiv103.appendChild(iDiv104);
+					}
+					if (k == 0 || k == 4 || k == 8) {
+						iDiv105 = document.createElement('div');
+						iDiv105.className = 'preview-subhead';
+						iDiv105.style.position = "relative";
+						var str = object[property][a];
+						str = str.replace('|| ', '');
+						iDiv105.innerHTML = str;
+						iDiv103.appendChild(iDiv105);
+					}
+					if (f == 1 || f == 5 || f == 9) {
+						iDiv106 = document.createElement('div');
+						iDiv106.className = 'preview-desc';
+						iDiv106.style.position = "relative";
+						var str = object[property][a];
+						str = str.replace('|| ', '');
+						iDiv106.innerHTML = str;
+						iDiv103.appendChild(iDiv106);
+					}
+					k++;
+					f++;
+					g++;
+					iDiv101.appendChild(iDiv103);
+					if (a == 3 || a == 7 || a == 11) {
+						iDiv108 = document.createElement('div');
+						iDiv108.className = 'clearboth';
+						iDiv103.appendChild(iDiv108);
+					}
+
+				}
+			}
+		}
+
+		document.getElementById('impress').appendChild(iDiv10);
+		document.getElementById('impress').appendChild(iDiv100);
+		document.getElementById('impress').appendChild(iDiv101);
+		j = j + 1000;
+		p++;
+
+	}
 </script>
 
-
 <script src="js/lib/impress.js"></script>
-<script>impress();</script>
-</body>
-</html>
+<script>
+		impress();
+</script>
