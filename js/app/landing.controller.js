@@ -12,12 +12,7 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
     //     "mainCategory" : "televisions",
     //     "searchString" : ""
     // }
-    $http.post("http://usdl013:6178/SpaceSearch/rest/searchProduct",{
-        "locale": AppData.preferredLanguage,
-        "mainCategory" : "televisions",
-        "searchString" : "",
-        "facet": false
-    })
+    $http.get("/json/jsondata.json")
     .then(function(response){
         this.productsList = response.data.documentList;
         this.facetResult = response.data.facetResult;
