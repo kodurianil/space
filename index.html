@@ -4,6 +4,7 @@
 <head>
     <title>SPACE</title>
     <meta charset="UTF-8">
+    <base href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -13,7 +14,7 @@
 
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/bootstrap.js"></script>
-
+    
     <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-ui-router.min.js"></script>
     <script src="js/lib/ui-bootstrap-tpls-0.14.3.js"></script>
@@ -21,11 +22,9 @@
     <script src="js/app/layout/header.controller.js"></script>
     <script src="js/app/layout/welcome.controller.js"></script>
     <script src="js/app/landing.controller.js"></script>
-    <script src="js/app/right.info.controller.js"></script>
-    <script src="js/app/search.controller.js"></script>
     <script src="js/app/cart/cart.controller.js"></script>
     <script src="js/app/cart/cart.service.js"></script>
-
+    
     <!--<script src="js/lib/impress.js"></script>-->
     <script>
         var cartSlide = {};
@@ -50,13 +49,13 @@
                 <div class="cart-popover" cart-popover ng-show="showPopover"></div>
             </div>
             <div class="col-lg-2 pull-right top_padding">
-                <div class="login">Login / Register</div>
-                <div class="login_icon"><i class="fa fa-user" style="zoom:2;margin: -1px 3px 0 0;"></i></div>
+                <i class="fa fa-user" style="zoom:2;margin: -1px 3px 0 0; vertical-align: middle;"></i>
+                <span class="login">Login / Register</span>
             </div>
-            <div class="col-lg-2 pull-right top_padding">
-                <div class="lang-lable">Lang</div>
-                <div class="lang-slect">
-                    <select id="userLanguage" data-ng-model="hc.preferredLanguage" data-ng-change="hc.onPreferredLanguage()" class="language">
+            <div class="col-lg-2 pull-right top_padding form-inline">
+                <div class="form-group">
+                    <label for="userLanguage"><i class="glyphicon glyphicon-globe user-lang"></i></label>
+                    <select id="userLanguage" data-ng-model="hc.preferredLanguage" data-ng-change="hc.onPreferredLanguage()" class="form-control">
                         <option value="en_IN">English (India)</option>
                         <option value="es_ES">Spanish (Spain)</option>
                         <option value="ru_RU">Russian (Russia)</option>
@@ -79,10 +78,10 @@
                 </div>
             </nav>
         </div>
-
-        <div class="container" ng-if="hc.navChildTabs.length">
+        <div class="container" ng-if="hc.showSubMenu == true">
+            <div class="close" ng-click="hc.hideSubMenu()" style="opacity: 0.6;"> x </div>
             <ul class="col-md-12 list-inline">
-                <li class="nav-child" data-ng-repeat="child in hc.navChildTabs">
+                <li class="nav-child" style="padding-top:10px;" data-ng-repeat="child in hc.navChildTabs">
                     <a ui-sref="landing({navTabId:child.id,lang:hc.preferredLanguage})">
                         <img id="{{'child'+$index}}" ng-src="{{child.image}}" alt="child.name" />
                         <h4 class="text-center" for="{{'child'+$index}}">{{child.name}}</h4>

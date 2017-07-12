@@ -109,7 +109,7 @@
     var getElementFromUrl = function () {
         // get id from url # by removing `#` or `#/` from the beginning,
         // so both `#slide-id` and "legacy" `#/slide-id` will work
-        return byId( window.location.hash.replace(/^#\/?/,"") );
+        return byId( window.impressPath);
     };
     
     // CHECK SUPPORT
@@ -318,7 +318,7 @@
             // BUG: http://code.google.com/p/chromium/issues/detail?id=62820
             window.clearTimeout( hashTimeout );
             hashTimeout = window.setTimeout(function () {
-                window.location.hash = "#/" + el.id;
+                window.impressPath = el.id;
             }, config.transitionDuration);
             
             var target = {

@@ -104,13 +104,12 @@ body {
 */
 .slide {
     display: block;
-
     width: 900px;
-    height: 350px;
+    height: 700px;
     padding: 40px 60px;
 
     background-image: url(../images/background.png);
-    background-color: white;
+    /*background-color: white; */
     border: 1px solid rgba(0, 0, 0, .3);
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);

@@ -11,13 +11,24 @@
         </div>
     </div>
     <div class="spacer"></div>
+    <h1 class="page-header" style="margin-top:0;"></h1>
+    <h1 class="text-left" data-ng-if="landCtrl.searchWord1.length">Search word: {{landCtrl.searchWord1}}</h1>
+    <h1 data-ng-if="landCtrl.loadingData && !landCtrl.productsList.length">Loading Products</h1>
+    <h1 data-ng-if="!landCtrl.loadingData && !landCtrl.productsList.length">No Data Found</h1>
     <div class="row" ui-view="">
-        <div class="col-sm-12 col-md-12 main" ui-view="rightcontent@landing">
-            <h1 class="page-header" style="margin-top:0;"></h1>
-            <h1 class="text-left" data-ng-if="landCtrl.searchWord1.length">Search word: {{landCtrl.searchWord1}}</h1>
-            <h1 data-ng-if="landCtrl.loadingData && !landCtrl.productsList.length">Loading Products</h1>
-            <h1 data-ng-if="!landCtrl.loadingData && !landCtrl.productsList.length">No Data Found</h1>
-            
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li class="widget" data-ng-repeat="(key,menu) in landCtrl.facetResult">
+                    <label class="capitalize">{{key|spaceBeforeUpper}}</label>
+                    <ul class="nav nav-sidebar">
+                        <li class="" data-ng-repeat="(innerKey,innerMenu) in menu">
+                            <a ng-click="landCtrl.searchByQ(key,innerKey)">{{innerKey}} ({{innerMenu}})</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-md-10 main" ui-view="rightcontent@landing">    
             <div class="placeholders text-center">
                 <div class="product-row" data-ng-repeat="product in landCtrl.productsList">
                     <div class="product-img">

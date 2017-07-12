@@ -10,48 +10,60 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
     
     $scope.$watch(function(){return $state.params.navTabId;}, function(newParams, oldParams){
         this.currentTab = angular.isDefined($state.params.navTabId)? parseInt($state.params.navTabId) : 0;
-        if(!this.currentTab){
-            $state.go("welcome");
+        console.log(this.currentTab);
+        if(this.currentTab){
+            this.navChildTabs = this.navTabs[this.currentTab].child;
+        } else {
+            this.navChildTabs = {};
         }
     }.bind(this));
-    this.navChildTabs = [];
-    this.navTabs = [
-        {
+
+    this.navChildTabs = {};
+    this.navTabs = {
+        101 : {
             name:"ELECTRONICS",
             id : "201",
-            child:[
-                {
+            child:{
+                101 : {
                     id:101,
                     name:"Televisions",
                     image:"//sonyglobal.scene7.com/is/image/gwtprod/fd8b373909276cbe25e21a45def8ef16?fmt=png-alpha&wid=140&hei=48"
                 },
-                {
+                102 : {
                     id:102,
                     name:"Cameras",
                     image:"//sonyglobal.scene7.com/is/image/gwtprod/93f98ce2df22fff8e298a46948a3a13c?fmt=png-alpha&wid=140&hei=48"
-                }]
+                }
+            }
         },
-        {
+        103 : {
             name:"MUSIC",
-            id : "103"
+            id : "103",
+            child:{}
         },
-        {
+        104 : {
             name: "PROFESSIONAL",
-            id: "104"
+            id: "104",
+            child:{}
         },
-        {
+        105 : {
             name: "PLAYSTATION",
-            id: "105"
+            id: "105",
+            child:{}
         },
-        {
+        106 : {
             name: "PICTURES",
-            id: "106"
+            id: "106",
+            child:{}
         }
-    ];
+    };
 
     this.getCartItem  = AppData.getCartItem;
     this.showPopover=false;
-    
+    this.showSubMenu = true;
+    this.hideSubMenu=function(){
+        this.showSubMenu = false;
+    }
     this.popover = {
         title: 'Title'
     }; 
@@ -59,13 +71,14 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
     this.onPreferredLanguage = function(){
         AppData.preferredLanguage = this.preferredLanguage;
     }.bind(this);
-
+    
     this.loadChildNav = function(child){
         if(angular.isDefined(child)){
             this.navChildTabs = child;
         } else {
             this.navChildTabs = [];
         }
+        this.showSubMenu = true;
     }.bind(this)
 
     this.popover.message = $sce.trustAsHtml('<b style="color: red">I can</b> have <div class="label label-success">HTML</div> content');

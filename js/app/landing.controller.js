@@ -4,25 +4,51 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
     this.searchWord = "";
     this.searchWord1 = "";
     this.productsList = [];
+    this.facetResult = {};
     // console.log(AppData.preferredLanguage);
-    $http.get("http://localhost:8983/solr/space2/select?wt=json&q=locale%3A"+AppData.preferredLanguage)
+    // http://usdl013:6178/ISIFSearch/rest/searchProduct
+    // {
+    //     "locale": AppData.preferredLanguage,
+    //     "mainCategory" : "televisions",
+    //     "searchString" : ""
+    // }
+    $http.get("/json/jsondata.json")
     .then(function(response){
-        this.productsList = response.data.response.docs;
+        this.productsList = response.data.documentList;
+        this.facetResult = response.data.facetResult;
     }.bind(this), function(error){
         this.productsList = [];
         this.loadingData = false;
+        this.facetResult = {};
     }.bind(this));
     // this.productsList = AppData.getProductsList($stateParams.navTabId);
-    this.searchByQ = function(){
+    this.searchByQ = function(facetField, facetFieldValue){
         this.loadingData = true;
         this.searchWord1 = this.searchWord1.replace(/\s+/g, '\\ ').toLowerCase();
-        $http.get("http://localhost:8983/solr/space2/select?wt=json&indent=true&q=mainCategory:televisions+AND+locale:"+AppData.preferredLanguage+"+AND+fullProductInfo:*"+this.searchWord1+"*&facet=true&facet.field=tvFeatures&facet.field=tvType&facet.field=tvScreenSize&facet.mincount=1")
+        console.log(angular.toJson({
+            "locale": AppData.preferredLanguage,
+            "mainCategory" : "televisions",
+            "searchString" : this.searchWord1,
+            "facetFieldValue" : facetFieldValue,
+            "facetField" : facetField,
+            "facet": true
+        }));
+        $http.post("http://usdl013:6178/ISIFSearch/rest/searchProduct", {
+            "locale": AppData.preferredLanguage,
+            "mainCategory" : "televisions",
+            "searchString" : this.searchWord1,
+            "facetFieldValue" : facetFieldValue,
+            "facetField" : facetField,
+            "facet": true
+        })
         .then(function(response){
             this.loadingData = false;
-            this.productsList = response.data.response.docs;
+            this.productsList = response.data.documentList;
+            this.facetResult = response.data.facetResult;
         }.bind(this), function(error){
             this.productsList = [];
             this.loadingData = false;
+            this.facetResult = {};
         }.bind(this));
     }.bind(this);
     
