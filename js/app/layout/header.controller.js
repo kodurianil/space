@@ -10,29 +10,26 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
     
     $scope.$watch(function(){return $state.params.navTabId;}, function(newParams, oldParams){
         this.currentTab = angular.isDefined($state.params.navTabId)? parseInt($state.params.navTabId) : 0;
-        console.log(this.currentTab);
-        if(this.currentTab){
-            this.navChildTabs = this.navTabs[this.currentTab].child;
-        } else {
-            this.navChildTabs = {};
-        }
+        this.loadChildNav(this.navTabs[this.currentTab].child);
     }.bind(this));
 
     this.navChildTabs = {};
     this.navTabs = {
-        101 : {
+        100 : {
             name:"ELECTRONICS",
             id : "201",
             child:{
                 101 : {
                     id:101,
                     name:"Televisions",
-                    image:"//sonyglobal.scene7.com/is/image/gwtprod/fd8b373909276cbe25e21a45def8ef16?fmt=png-alpha&wid=140&hei=48"
+                    image:"//sonyglobal.scene7.com/is/image/gwtprod/fd8b373909276cbe25e21a45def8ef16?fmt=png-alpha&wid=140&hei=48",
+                    child:[]
                 },
                 102 : {
                     id:102,
                     name:"Cameras",
-                    image:"//sonyglobal.scene7.com/is/image/gwtprod/93f98ce2df22fff8e298a46948a3a13c?fmt=png-alpha&wid=140&hei=48"
+                    image:"//sonyglobal.scene7.com/is/image/gwtprod/93f98ce2df22fff8e298a46948a3a13c?fmt=png-alpha&wid=140&hei=48",
+                    child:[]
                 }
             }
         },
@@ -60,7 +57,7 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
 
     this.getCartItem  = AppData.getCartItem;
     this.showPopover=false;
-    this.showSubMenu = true;
+    this.showSubMenu = false;
     this.hideSubMenu=function(){
         this.showSubMenu = false;
     }
@@ -73,12 +70,14 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
     }.bind(this);
     
     this.loadChildNav = function(child){
-        if(angular.isDefined(child)){
+        this.showSubMenu = false;
+        if(angular.isDefined(child) && Object.keys(child).length){
             this.navChildTabs = child;
+            this.showSubMenu = true;
         } else {
-            this.navChildTabs = [];
+            this.navChildTabs = {};            
         }
-        this.showSubMenu = true;
+        
     }.bind(this)
 
     this.popover.message = $sce.trustAsHtml('<b style="color: red">I can</b> have <div class="label label-success">HTML</div> content');
