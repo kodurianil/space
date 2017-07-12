@@ -11,18 +11,28 @@
         </div>
     </div>
     <div class="spacer"></div>
+    <div class="row">
+        <ul class="col-md-10 list-inline">
+            <li class="inputtag-facet text-center" data-ng-repeat="(key,input) in landCtrl.inputtag">
+                <span >{{key|spaceBeforeUpper:'_'}} : {{input}} <i class="pointer glyphicon glyphicon-trash"></i></span>                
+            </li>
+        </ul>
+        <label class="col-md-2 text-right" style="top: 23px;">
+            <span data-ng-if="landCtrl.productsList.length" style="font-size: initial;">1 - {{landCtrl.productsList.length}} of {{landCtrl.productsList.length}}</span>
+        </label>
+    </div>
     <h1 class="page-header" style="margin-top:0;"></h1>
     <h1 class="text-left" data-ng-if="landCtrl.searchWord1.length">Search word: {{landCtrl.searchWord1}}</h1>
     <h1 data-ng-if="landCtrl.loadingData && !landCtrl.productsList.length">Loading Products</h1>
     <h1 data-ng-if="!landCtrl.loadingData && !landCtrl.productsList.length">No Data Found</h1>
-    <div class="row" ui-view="">
+    <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="widget" data-ng-repeat="(key,menu) in landCtrl.facetResult">
                     <label class="capitalize">{{key|spaceBeforeUpper}}</label>
                     <ul class="nav nav-sidebar">
-                        <li class="" data-ng-repeat="(innerKey,innerMenu) in menu">
-                            <a ng-click="landCtrl.searchByQ(key,innerKey)">{{innerKey}} ({{innerMenu}})</a>
+                        <li style="margin-bottom:1px;" data-ng-repeat="(innerKey,innerMenu) in menu">
+                            <a class="pointer" ng-click="landCtrl.searchByQ(key,innerKey)" data-ng-bind-html="landCtrl.bindFacetInfo(innerKey, innerMenu)"></a>
                         </li>
                     </ul>
                 </li>
@@ -33,8 +43,8 @@
                 <div class="product-row" data-ng-repeat="product in landCtrl.productsList">
                     <div class="product-img">
                         <!--<div class="product-title"><a href="{{product.href}}">{{product.model}} </a></div>-->
-                        <span class="addtocart" data-ng-if="!product.isInCart" data-ng-click="product.isInCart = true; landCtrl.pushCartItem(product)"></span>
-                        <span class="addedtocart" data-ng-if="product.isInCart"></span>
+                        <span class="addtocart" data-ng-if="landCtrl.cartItemIds.indexOf(product.productId)==-1" data-ng-click="product.isInCart = true; landCtrl.pushCartItem(product)"></span>
+                        <span class="addedtocart" data-ng-if="landCtrl.cartItemIds.indexOf(product.productId)!=-1"></span>
                         <div class="product-img-wrap">
                             <a itemscope="" itemtype="http://schema.org/Product" itemprop="url" href="{{product.href}}" class="product-link-to-pdp product-url">
                                 <div class="ghost-center">

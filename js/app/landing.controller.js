@@ -5,6 +5,12 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
     this.searchWord1 = "";
     this.productsList = [];
     this.facetResult = {};
+    this.inputtag = [];
+    this.pushCartItem = AppData.pushCartItem;
+    this.cartItemIds = AppData.cartItemIds;
+    this.bindFacetInfo = function(innerKey, innerMenu){
+        return innerKey + " (" + innerMenu + ")";
+    }
     // console.log(AppData.preferredLanguage);
     // http://usdl013:6178/ISIFSearch/rest/searchProduct
     // {
@@ -16,10 +22,12 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
     .then(function(response){
         this.productsList = response.data.documentList;
         this.facetResult = response.data.facetResult;
+        this.inputtag = response.data.inputtag;
     }.bind(this), function(error){
         this.productsList = [];
         this.loadingData = false;
         this.facetResult = {};
+        this.inputtag = [];
     }.bind(this));
     // this.productsList = AppData.getProductsList($stateParams.navTabId);
     this.searchByQ = function(facetField, facetFieldValue){
@@ -45,14 +53,12 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
             this.loadingData = false;
             this.productsList = response.data.documentList;
             this.facetResult = response.data.facetResult;
+            this.inputtag = response.data.inputtag;
         }.bind(this), function(error){
             this.productsList = [];
             this.loadingData = false;
             this.facetResult = {};
+            this.inputtag = [];
         }.bind(this));
     }.bind(this);
-    
-    this.pushCartItem = AppData.pushCartItem;
-    // this.getCartItem  = AppData.getCartItem;
-
 }]);

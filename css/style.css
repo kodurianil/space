@@ -355,6 +355,7 @@
     float: left;
        margin-right: 2%;
     margin-left: 1%;
+    margin-bottom: 20px;
 }
 .product-title{
     padding:5px;
@@ -673,6 +674,21 @@
 .capitalize{
     text-transform: capitalize;
 }
+.inputtag-facet {
+    padding: 5px;
+    margin-right: 10px;
+    background-color: #3d8e8e;
+    color: #fff;
+}
+
+.inputtag-facet span{
+    text-transform: uppercase; 
+}
+
+.pointer {
+    cursor: pointer;
+}
+
 
 li.widget {
     margin-bottom: 30px;
@@ -702,4 +718,7 @@ li.widget ul li a {
 .user-lang{
     font-size: 20px;
     vertical-align: middle;
+}
+li.widget ul li:hover {
+    background-color: #dcdada;
 }

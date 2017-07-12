@@ -4854,6 +4854,10 @@
             "X-tended dynamic range": 14
         }
     },
+    "inputtag": {
+        "B2B_STATUS": "active",
+        "B2B_MENU_NAV": "1-sheet"
+    }, 
     "inputtagResult": null,
     "totalRows": 27
 }

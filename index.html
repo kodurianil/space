@@ -17,6 +17,7 @@
     
     <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-ui-router.min.js"></script>
+    <script src="js/lib/angular-sanitize.min.js"></script>
     <script src="js/lib/ui-bootstrap-tpls-0.14.3.js"></script>
     <script src="js/app/app.js"></script>
     <script src="js/app/layout/header.controller.js"></script>
@@ -70,8 +71,8 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li data-ng-repeat="navTab in hc.navTabs" data-ng-class="{'active':navTab.id==hc.currentTab}" data-ng-click="hc.currentTab=navTab.id;hc.loadChildNav(navTab.child)">
-                                <a ng-if="!navTab.child" ui-sref="landing({navTabId:navTab.id,lang:hc.preferredLanguage})">{{navTab.name}}</a>
-                                <a ng-if="navTab.child">{{navTab.name}}</a>
+                                <a ng-if="(navTab.child|keysLength)==0" ui-sref="landing({navTabId:navTab.id,lang:hc.preferredLanguage})">{{navTab.name}}</a>
+                                <a class="pointer" ng-if="(navTab.child|keysLength)>0">{{navTab.name}}</a>
                             </li>
                         </ul>
                     </div>
@@ -81,7 +82,7 @@
         <div class="container" ng-if="hc.showSubMenu == true">
             <div class="close" ng-click="hc.hideSubMenu()" style="opacity: 0.6;"> x </div>
             <ul class="col-md-12 list-inline">
-                <li class="nav-child" style="padding-top:10px;" data-ng-repeat="child in hc.navChildTabs">
+                <li class="nav-child" style="padding-top:10px;" data-ng-repeat="child in hc.navChildTabs" ng-click="hc.showSubMenu=false;">
                     <a ui-sref="landing({navTabId:child.id,lang:hc.preferredLanguage})">
                         <img id="{{'child'+$index}}" ng-src="{{child.image}}" alt="child.name" />
                         <h4 class="text-center" for="{{'child'+$index}}">{{child.name}}</h4>

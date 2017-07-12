@@ -10,7 +10,6 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
     
     $scope.$watch(function(){return $state.params.navTabId;}, function(newParams, oldParams){
         this.currentTab = angular.isDefined($state.params.navTabId)? parseInt($state.params.navTabId) : 0;
-        this.loadChildNav(this.navTabs[this.currentTab].child);
     }.bind(this));
 
     this.navChildTabs = {};

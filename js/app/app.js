@@ -1,4 +1,4 @@
-var ISIPApp = angular.module("ISIPApp", ['ui.router.compat', 'ui.bootstrap']);
+var ISIPApp = angular.module("ISIPApp", ['ui.router.compat', 'ui.bootstrap', "ngSanitize"]);
 
 ISIPApp.config(['$stateProvider', '$urlRouterProvider', "$httpProvider", "$locationProvider",
     function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
@@ -51,9 +51,11 @@ ISIPApp.config(['$stateProvider', '$urlRouterProvider', "$httpProvider", "$locat
             views: {
                 "@":  {
                     templateUrl: 'js/views/preview.html',
-                    constroller: function(){
-                        console.log(window.impress);
-                    }
+                    controller: ["AppData",function(AppData){
+                        this.productsList = AppData.getCartItem();
+                        console.log(this.productsList);
+                    }],
+                    controllerAs: "p1"
                 }
             }
         })
@@ -76,8 +78,20 @@ ISIPApp.config(['$stateProvider', '$urlRouterProvider', "$httpProvider", "$locat
 }])
 
 .filter("spaceBeforeUpper", function(){
-    return function(value){
+    return function(value, param){
+        console.log(param)
+        if(param){
+            return value.replace("_", " ").toLowerCase();
+        }
         return value.replace(/([A-Z])/g, " $1").toLowerCase();
-    }    
-});
+    };    
+})
 
+.filter("keysLength", function(){
+    return function(value){
+        if(angular.isDefined(value) && angular.isObject(value)){
+            return Object.keys(value).length;
+        }
+        return 0;
+    }
+});

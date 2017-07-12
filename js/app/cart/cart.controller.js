@@ -4,6 +4,6 @@ ISIPApp.controller("cartController", ["$stateParams", "$timeout", "AppData", "$s
     this.deleteCartItem = AppData.deleteCartItem;
     this.deleteAllCartItem = AppData.deleteAllCartItem;
 
-    $scope.productsList = AppData.getCartItem();
-    window.cartSlide.slides =$scope.productsList;
+//     $scope.productsList = AppData.getCartItem();
+//     window.cartSlide.slides =$scope.productsList;
 }]);
