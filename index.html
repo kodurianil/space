@@ -44,8 +44,8 @@
             </div>
             <div class="col-lg-1 pull-right top_padding">
                 <a ui-sref="cart">
-                    <div class="cart_icon" ng-mouseover="showPopover=true;" ng-click="showPopover=false;"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
-                    <div class="ycircle" ng-mouseover="showPopover=true;" ng-click="showPopover=false;">{{hc.getCartItem().length}}</div>
+                    <div class="cart_icon" ng-mouseout="showPopover=false;" ng-mouseover="showPopover=true;" ng-click="showPopover=false;"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
+                    <div class="ycircle" ng-mouseout="showPopover=false;" ng-mouseover="showPopover=true;" ng-click="showPopover=false;">{{hc.getCartItem().length}}</div>
                 </a>
                 <div class="cart-popover" cart-popover ng-show="showPopover"></div>
             </div>
@@ -58,12 +58,11 @@
                     <label for="userLanguage"><i class="glyphicon glyphicon-globe user-lang"></i></label>
                     <select id="userLanguage" data-ng-model="hc.preferredLanguage" data-ng-change="hc.onPreferredLanguage()" class="form-control">
                         <option value="en_IN">English (India)</option>
-                        <option value="es_ES">Spanish (Spain)</option>
                         <option value="ru_RU">Russian (Russia)</option>
+                        <option value="es_ES">Spanish (Spain)</option>                        
                     </select>
                 </div>
             </div>
-
         </div>
         <div class="navbar-wrapper">
             <nav class="navbar navbar-inverse navbar-static-top">
@@ -71,7 +70,7 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li data-ng-repeat="navTab in hc.navTabs" data-ng-class="{'active':navTab.id==hc.currentTab}" data-ng-click="hc.currentTab=navTab.id;hc.loadChildNav(navTab.child)">
-                                <a ng-if="(navTab.child|keysLength)==0" ui-sref="landing({navTabId:navTab.id,lang:hc.preferredLanguage})">{{navTab.name}}</a>
+                                <a ng-if="(navTab.child|keysLength)==0" ui-sref="landing({navTabId:navTab.id,lang:hc.preferredLanguage})" ui-sref-opts="{reload: true}">{{navTab.name}}</a>
                                 <a class="pointer" ng-if="(navTab.child|keysLength)>0">{{navTab.name}}</a>
                             </li>
                         </ul>
@@ -82,11 +81,9 @@
         <div class="container" ng-if="hc.showSubMenu == true">
             <div class="close" ng-click="hc.hideSubMenu()" style="opacity: 0.6;"> x </div>
             <ul class="col-md-12 list-inline">
-                <li class="nav-child" style="padding-top:10px;" data-ng-repeat="child in hc.navChildTabs" ng-click="hc.showSubMenu=false;">
-                    <a ui-sref="landing({navTabId:child.id,lang:hc.preferredLanguage})">
+                <li  class="pointer nav-child" style="padding-top:10px;" data-ng-repeat="child in hc.navChildTabs" ng-click="hc.showSubMenu=false;" ui-sref="landing({navTabId:child.id,lang:hc.preferredLanguage})" ui-sref-opts="{reload: true}">
                         <img id="{{'child'+$index}}" ng-src="{{child.image}}" alt="child.name" />
                         <h4 class="text-center" for="{{'child'+$index}}">{{child.name}}</h4>
-                    </a>
                 </li>
             </ul>
         </div>

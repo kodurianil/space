@@ -580,10 +580,11 @@
     margin-bottom: 0;
     font-weight: bold;
     min-height: 60px;
-    max-height: 60px;
+    height: 80px;
 }
 .product-features{
     min-height: 100px;
+    height: 150px;
 }
 .cart-preview{
     color: white !important;
@@ -679,8 +680,11 @@
     margin-right: 10px;
     background-color: #3d8e8e;
     color: #fff;
+    margin-bottom: 5px;
 }
-
+.text-red {
+    color: #ffb3b3;
+}
 .inputtag-facet span{
     text-transform: uppercase; 
 }

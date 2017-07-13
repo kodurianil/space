@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-lg-offset-3">
-            <form name="searchForm" class="search_bar" data-ng-submit="landCtrl.searchWord1=landCtrl.searchWord;landCtrl.searchWord='';landCtrl.searchByQ()">
+            <form name="searchForm" class="search_bar" data-ng-submit="landCtrl.searchWord1=landCtrl.searchWord;landCtrl.searchWord='';landCtrl.inputtag = {};landCtrl.searchByQ()">
                 <div class="">
                 <input data-ng-model="landCtrl.searchWord" placeholder="Search for anything"
                     type="text" />
@@ -13,16 +13,21 @@
     <div class="spacer"></div>
     <div class="row">
         <ul class="col-md-10 list-inline">
-            <li class="inputtag-facet text-center" data-ng-repeat="(key,input) in landCtrl.inputtag">
-                <span >{{key|spaceBeforeUpper:'_'}} : {{input}} <i class="pointer glyphicon glyphicon-trash"></i></span>                
+            <li data-ng-repeat="(facetKey,inputArray) in landCtrl.inputtag">
+                <ul class="list-inline">
+                    <li class="inputtag-facet text-center" data-ng-repeat="(key,input) in inputArray">
+                        <span >{{facetKey|spaceBeforeUpper}} : {{input}}</span>
+                        <i class="pointer glyphicon glyphicon-remove text-red" data-ng-click="landCtrl.removeFacet(facetKey,key)"></i>
+                    </li>
+                </ul>
             </li>
         </ul>
-        <label class="col-md-2 text-right" style="top: 23px;">
+        <label class="col-md-2 text-right" ng-style="{top: (landCtrl.inputtag|keysLength)?'23px':'0px'}">
             <span data-ng-if="landCtrl.productsList.length" style="font-size: initial;">1 - {{landCtrl.productsList.length}} of {{landCtrl.productsList.length}}</span>
         </label>
     </div>
     <h1 class="page-header" style="margin-top:0;"></h1>
-    <h1 class="text-left" data-ng-if="landCtrl.searchWord1.length">Search word: {{landCtrl.searchWord1}}</h1>
+    <h1 class="text-left" data-ng-if="landCtrl.searchWord1.length">You searched for: {{landCtrl.searchWord1}}</h1>
     <h1 data-ng-if="landCtrl.loadingData && !landCtrl.productsList.length">Loading Products</h1>
     <h1 data-ng-if="!landCtrl.loadingData && !landCtrl.productsList.length">No Data Found</h1>
     <div class="row">

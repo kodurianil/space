@@ -66,6 +66,7 @@ ISIPApp.controller("headerController",["$stateParams", "$state", "$scope","$sce"
     
     this.onPreferredLanguage = function(){
         AppData.preferredLanguage = this.preferredLanguage;
+        $state.reload();
     }.bind(this);
     
     this.loadChildNav = function(child){

@@ -12,9 +12,6 @@ ISIPApp.config(['$stateProvider', '$urlRouterProvider', "$httpProvider", "$locat
 
         $stateProvider.state("welcome", {
             url: "/",
-            onEntry:function(){
-                $("#bodyISIPApp").css("overflow","auto");
-            },
             views: {
                 "@": {
                     templateUrl: 'js/views/welcome.html',
@@ -25,9 +22,6 @@ ISIPApp.config(['$stateProvider', '$urlRouterProvider', "$httpProvider", "$locat
         })
         .state("landing", {
             url: "/landing/:navTabId/:lang",
-            onEntry:function(){
-                $("#bodyISIPApp").css("overflow","auto");
-            },
             views: {
                 "@": {
                     templateUrl: 'js/views/landing.html',
@@ -51,9 +45,10 @@ ISIPApp.config(['$stateProvider', '$urlRouterProvider', "$httpProvider", "$locat
             views: {
                 "@":  {
                     templateUrl: 'js/views/preview.html',
-                    controller: ["AppData",function(AppData){
-                        this.productsList = AppData.getCartItem();
-                        console.log(this.productsList);
+                    controller: ["AppData","$scope",function(AppData, $scope){
+                        $scope.productsList = AppData.getCartItem(); 
+                        window.cartSlide.slides =$scope.productsList;
+                        
                     }],
                     controllerAs: "p1"
                 }
