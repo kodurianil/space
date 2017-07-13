@@ -18,7 +18,13 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
     //     "mainCategory" : "televisions",
     //     "searchString" : ""
     // }
-    $http.get("/json/jsondata.json")
+    $http.post("http://localhost:6139/ISIFSearch/rest/searchProduct",
+    {
+        "locale": AppData.preferredLanguage,
+        "mainCategory" : "televisions",
+        "searchString" : "",
+        "facet": false
+    })
     .then(function(response){
         this.productsList = response.data.documentList;
         this.facetResult = response.data.facetResult;
@@ -41,7 +47,7 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
             "facetField" : facetField,
             "facet": true
         }));
-        $http.post("http://usdl013:6178/ISIFSearch/rest/searchProduct", {
+        $http.post("http://localhost:6139/ISIFSearch/rest/searchProduct", {
             "locale": AppData.preferredLanguage,
             "mainCategory" : "televisions",
             "searchString" : this.searchWord1,
