@@ -6,6 +6,7 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
         101:"televisions",
         102:"cameras"
     }
+    this.searchurl = "http://INSISCILT-2009:6139/ISIFSearch/rest/searchProduct";
     this.searchWord = "";
     this.searchWord1 = "";
     this.productsList = [];
@@ -20,7 +21,7 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
         this.inputtag[facetKey].splice(key,1);
         this.searchByQ();
     }
-    $http.post("http://43.88.105.233:6139/ISIFSearch/rest/searchProduct",
+    $http.post(this.searchurl,
     {
         "locale": AppData.preferredLanguage,
         "mainCategory" : this.landingPagesInfo[$stateParams.navTabId],
@@ -55,7 +56,7 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
             }            
         }
         params = angular.extend(params, this.inputtag)
-        $http.post("http://43.88.105.233:6139/ISIFSearch/rest/searchProduct", params)
+        $http.post(this.searchurl, params)
         .then(function(response){
             this.loadingData = false;
             this.productsList = response.data.documentList;
