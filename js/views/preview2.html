@@ -5,6 +5,68 @@
 	header {
 		display: none;
 	}
+	.class50{
+		height:auto;
+		font-size: 20px;
+		margin-top: 0px;
+	}
+	.preview-label {
+	font-size: 20px;
+	text-decoration: underline;
+    font-weight: bold;
+}
+.colcount{
+	font-size: 15px;
+	width:50%;
+}
+.colcount .preview-subhead{
+   width: 100%;
+   height: 50px;
+   font-weight: bold;
+       padding: 1px 10px;
+}
+.colcount .preview-image img{
+    width: 100%;
+    z-index: 2;
+    position: relative;
+}
+.colcount .preview-desc{
+   height: 75px;
+   overflow: hidden;
+   width: 100%;
+   font-size: 15px;
+}
+.preview-label2{
+    background-color: #37d3f7;
+    color: #fff;
+    padding: 10px 20px;
+	    font-weight: bold;
+		text-transform: uppercase;
+}
+.topfeat{
+    background-color: #f3d360;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    width: 50%;
+    margin-right: 0;
+}
+.awards{
+    background-color: #4d92c3;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    width: 50%;
+    margin-right: 0;
+}
+.supfeat{
+    background-color: #b1e2ac;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    width: 50%;
+    margin-right: 0;
+}
 </style>
 <div class="fallback-message">
 	<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version
@@ -52,16 +114,33 @@
 		var li = document.createElement('li');
 
 		var x = document.createElement("IMG");
-		iDivStart = document.createElement('div');
-		iDivStart.id = 'step-' + i + "x";
-		iDivStart.className = 'step slide slideTitle';
-		iDivStart.style.cssText = "margin-top:20%;";
-		iDivStarttitle = document.createElement('div');
-		iDivStarttitle.className = 'slideTitle';
-		var pro = "PRODUCT";
-		iDivStarttitle.innerHTML = pro;
-		iDivStart.appendChild(iDivStarttitle);
-		document.getElementById('impress').appendChild(iDivStart);
+
+		var iDivB1 = document.createElement('div');
+		iDivB1.id = 'step-' + i + "b";
+		iDivB1.className = 'step slide';
+		iDivB1.style.cssText = "margin-top:20%;";
+		iDivB1.style.background = 'url("images/slide2.png")';
+		iDivB1.setAttribute("data-x", j + 1000);
+		iDivB1.setAttribute("data-y", j + 3000);
+		iDivB1.setAttribute("data-rotate", j);
+		var iDivB100 = document.createElement('div');
+		var iDivB101 = document.createElement('div');
+		var iDivB102 = document.createElement('div');
+		for (var property in object) {
+			if (property == "modelName") {
+				iDivB101.className = 'preview-title whitecolor';
+				iDivB101.innerHTML = object[property];				
+			}
+			if (property == "elevatorPitch") {
+				iDivB102.className = 'preview-desc whitecolor';
+				iDivB102.style.bottom = "45px";
+				iDivB102.innerHTML = object[property];				
+			}
+			iDivB1.appendChild(iDivB101);
+			iDivB1.appendChild(iDivB102);
+		}
+
+/*
 		iDiv10 = document.createElement('div');
 		iDiv11 = document.createElement('div');
 		iDiv12 = document.createElement('div');
@@ -71,77 +150,66 @@
 		iDiv10.className = 'step slide';
 		iDiv10.style.cssText = "margin-top:20%;";
 		iDiv11.className = 'preview-title';
-		iDiv12.className = 'preview-image';
+		iDiv12.className = 'preview-image class50P1';
+		iDiv12.style.height = '45%';
 		iDiv13.className = 'preview-label';
 		iDiv14.className = 'preview-desc';
-		iDiv10.setAttribute("data-x", j + 1000);
-		iDiv10.setAttribute("data-y", j + 3000);
+		iDiv15 = document.createElement('div');
+		iDiv15.className = 'preview-label2';
+		iDiv15.innerHTML = "Specification and Features : ";
+		
+		iDiv16 = document.createElement('div');
+		iDiv17 = document.createElement('div');
+		iDiv18 = document.createElement('div');
+		iDiv19 = document.createElement('div');
+		iDiv20 = document.createElement('div');
+		iDiv21 = document.createElement('div');
+		iDiv108 = document.createElement('div');
+		iDiv108.className = 'clearboth';	
+		iDiv109 = document.createElement('div');
+		iDiv109.className = 'class50P1';	
+
+		iDiv10.setAttribute("data-x", j + 3000);
+		iDiv10.setAttribute("data-y", j + 7000);
 		iDiv10.setAttribute("data-rotate", j);
 		for (var property in object) {
 			if (property == "longMarketingProductName") {
-				iDiv11.innerHTML = "Title:  " + object[property];
+				iDiv11.innerHTML = object[property];
 			} else if (property == "imagesPrimaryShot") {
 				x.setAttribute("src", object[property][0]);
-				iDiv12.appendChild(x);
-			} else if (property == "elevatorPitch") {
-				iDiv13.innerHTML = object[property];
-			} else if (property == "longDescription") {
-				iDiv14.innerHTML = object[property];
-			}
-			iDiv10.appendChild(iDiv11);
-			iDiv12.appendChild(x);
-			iDiv10.appendChild(iDiv12);
-			iDiv10.appendChild(iDiv13);
-			iDiv10.appendChild(iDiv14);
-		}
-
-		iDiv100 = document.createElement('div');
-		iDiv11 = document.createElement('div');
-		iDiv12 = document.createElement('div');
-		iDiv100.id = 'step-' + i + "b";
-		iDiv100.className = 'step slide';
-		iDiv100.style.cssText = "margin-top:20%;";
-		iDiv100.setAttribute("data-x", j + 2000);
-		iDiv100.setAttribute("data-y", j + 6000);
-		iDiv100.setAttribute("data-rotate", j);
-		iDiv11.className = 'preview-title';
-		iDiv11.innerHTML = "Specification and Features : ";
-		iDiv100.appendChild(iDiv11);
-		for (var property in object) {
-			if (property == "longDescription") {
-				iDiv12.className = 'preview-subhead';
-				iDiv12.innerHTML = object[property];
-				iDiv100.appendChild(iDiv12);
-			}
-			if (property == "featureIcons") {
+			} else if (property == "featureIcons") {				
+				iDiv20.className = 'class50P2';
+				iDiv20.style.border = 'none';
+				iDiv15.innerHTML = "Specification and Features : ";	
+				iDiv20.appendChild(iDiv15);							
 				for (var a = 0; a < object[property].length; a++) {
 					var divs = document.createElement('div');
-					divs.className = 'class50';
-					divs.innerHTML = "<img src='images/star.png' style='margin-right:10px; width: auto;zoom: 2;' >" + object[property][a];
-					iDiv100.appendChild(divs);
-				}
-			}
-		}
-
-		iDiv101 = document.createElement('div');
-		iDiv102 = document.createElement('div');
-
-		iDiv101.id = 'step-' + i + "c";
-		iDiv101.className = 'step slide';
-		iDiv101.style.cssText = "margin-top:20%;";
-		iDiv101.setAttribute("data-x", j + 4000);
-		iDiv101.setAttribute("data-y", j + 9000);
-		iDiv101.setAttribute("data-rotate", j);
-		iDiv102.className = 'preview-title';
-		iDiv102.innerHTML = "FEATURES ";
-		iDiv101.appendChild(iDiv102);
-		var k = 0; var f = 0; var g = 0;
-		iDiv103 = document.createElement('div');
-		iDiv103.className = 'colcount';
-		for (var property in object) {
+					divs.className = 'class50P2';
+					divs.style.height = '70px';
+					divs.style.overflow = 'hidden';
+					divs.innerHTML = "<img src='images/star.png' style='margin-right:10px; width: auto;' >" + object[property][a];
+					iDiv20.appendChild(divs);										
+				}				
+			} 
+			iDiv10.appendChild(iDiv11);
+			iDiv12.appendChild(x);
+			iDiv10.appendChild(iDiv12);			
+			iDiv10.appendChild(iDiv20);			
+			iDiv10.appendChild(iDiv108);			
+			if (property == "elevatorPitch") {
+				iDiv13.innerHTML = object[property];								
+			} else if (property == "longDescription") {
+				iDiv14.innerHTML = object[property];				
+			} 
+			iDiv109.appendChild(iDiv13);
+			iDiv109.appendChild(iDiv14);			
+			iDiv10.appendChild(iDiv109);
 			if (property == "featureBenefits") {
+				iDiv16.className = 'preview-label class50 topfeat';
+				iDiv16.innerHTML = "TOP FEATURES ";				
+				var k = 0; var f = 0; var g = 0;
+				iDiv21.className = 'colcount';
 				for (var a = 0; a < object[property].length; a++) {
-
 					if (g == 3 || g == 7 || g == 11) {
 						var y = document.createElement("IMG");
 						iDiv104 = document.createElement('div');
@@ -151,7 +219,7 @@
 						str = str.replace(/ /g, '')
 						y.setAttribute("src", str);
 						iDiv104.appendChild(y);
-						iDiv103.appendChild(iDiv104);
+						iDiv21.appendChild(iDiv104);
 					}
 					if (k == 0 || k == 4 || k == 8) {
 						iDiv105 = document.createElement('div');
@@ -160,7 +228,7 @@
 						var str = object[property][a];
 						str = str.replace('|| ', '');
 						iDiv105.innerHTML = str;
-						iDiv103.appendChild(iDiv105);
+						iDiv21.appendChild(iDiv105);
 					}
 					if (f == 1 || f == 5 || f == 9) {
 						iDiv106 = document.createElement('div');
@@ -169,25 +237,149 @@
 						var str = object[property][a];
 						str = str.replace('|| ', '');
 						iDiv106.innerHTML = str;
-						iDiv103.appendChild(iDiv106);
+						iDiv21.appendChild(iDiv106);
 					}
 					k++;
 					f++;
 					g++;
-					iDiv101.appendChild(iDiv103);
+				//	iDiv10.appendChild(iDiv21);
 					if (a == 3 || a == 7 || a == 11) {
 						iDiv108 = document.createElement('div');
 						iDiv108.className = 'clearboth';
-						iDiv103.appendChild(iDiv108);
+						iDiv21.appendChild(iDiv108);
 					}
-
-				}
+				}				
 			}
+			iDiv10.appendChild(iDiv16);
+			iDiv10.appendChild(iDiv21);
+		}
+		*/
+		var iDivC1 = document.createElement('div');
+		iDivC1.id = 'step-' + i + "c";
+		iDivC1.className = 'step slide';
+		iDivC1.style.cssText = "margin-top:20%;";
+		iDivC1.setAttribute("data-x", j + 3000);
+		iDivC1.setAttribute("data-y", j + 7000);
+		iDivC1.setAttribute("data-rotate", j);
+		var iDivc1 = document.createElement('div');
+		var iDivc2 = document.createElement('div');
+		var iDivc3 = document.createElement('div');
+		var iDivc4 = document.createElement('div');
+		var iDivc11 = document.createElement('div');
+		var iDivc12 = document.createElement('div');
+		var iDivc13 = document.createElement('div');
+		var iDivc14 = document.createElement('div');
+		var iDivc15 = document.createElement('div');
+
+		var cx = document.createElement("IMG");
+		iDivc11.className = 'preview-title titlecolor';
+		iDivc12.className = 'preview-image class50P1 greyBack';
+		iDivc12.style.height = '45%';
+		iDivc13.className = 'preview-label';
+		iDivc14.className = 'preview-desc';
+		iDivc15 = document.createElement('div');
+		iDivc15.className = 'preview-label2';
+		iDivc15.innerHTML = "Specification and Features : ";
+		
+		iDivc16 = document.createElement('div');
+		iDivc17 = document.createElement('div');
+		iDivc18 = document.createElement('div');
+		iDivc19 = document.createElement('div');
+		iDivc20 = document.createElement('div');
+		iDivc21 = document.createElement('div');
+		iDivc108 = document.createElement('div');
+		iDivc108.className = 'clearboth';	
+		iDivc109 = document.createElement('div');
+		iDivc109.className = 'class50P1 greyBack';	
+
+		for (var property in object) {
+			if (property == "longMarketingProductName") {
+				iDivc11.innerHTML = object[property];
+			} else if (property == "imagesPrimaryShot") {
+				cx.setAttribute("src", object[property][0]);
+			} else if (property == "featureIcons") {				
+				iDivc20.className = 'class50P2';
+				iDivc20.style.border = 'none';
+				iDivc20.style.height = '195px';
+				iDivc20.style.overflow = 'hidden';
+				iDivc20.style.margin = '0';
+				iDivc20.style.padding = '0';
+				iDivc20.style.width = '50%';
+				iDivc20.style.overflow = 'hidden';
+	
+				iDivc15.innerHTML = "Specification and Features : ";	
+				iDivc20.appendChild(iDivc15);							
+				for (var a = 0; a < object[property].length; a++) {
+					var divs = document.createElement('div');
+					divs.className = 'class50P2';
+					divs.style.height = '70px';
+					divs.style.overflow = 'hidden';
+					divs.innerHTML = "<img src='images/star.png' style='margin-right:10px; width: auto;' >" + object[property][a];
+					iDivc20.appendChild(divs);										
+				}				
+			} 
+			iDivC1.appendChild(iDivc11);
+			iDivc12.appendChild(cx);
+			iDivC1.appendChild(iDivc12);			
+			iDivC1.appendChild(iDivc20);
+			iDivc2.className = 'preview-label class50 awards';
+			iDivc2.innerHTML = "AWARDS";			
+			iDivC1.appendChild(iDivc2);			
+			iDivC1.appendChild(iDivc108);			
+			if (property == "elevatorPitch") {
+				iDivc13.innerHTML = object[property];								
+			} else if (property == "longDescription") {
+				iDivc14.innerHTML = object[property];				
+			} 
+			iDivc109.appendChild(iDivc13);
+			iDivc109.appendChild(iDivc14);			
+			iDivC1.appendChild(iDivc109);
+			
+			if (property == "featureBenefits") {
+				iDivc16.className = 'preview-label class50 supfeat';
+				iDivc16.innerHTML = "SUPIRIOR TECHNOLOGY ";				
+				var k = 0; var f = 0; var g = 0;
+				iDivc21.className = 'colcount';
+				for (var a = 0; a < object[property].length; a++) {
+					if (g == 3 || g == 7 || g == 11) {
+						var y = document.createElement("IMG");
+						iDivc104 = document.createElement('div');
+						iDivc104.className = 'preview-image';
+						var str = object[property][a];
+						str = str.replace('|| ', '');
+						str = str.replace(/ /g, '')
+						y.setAttribute("src", str);
+						iDivc104.appendChild(y);
+						iDivc21.appendChild(iDivc104);
+					}
+					if (k == 0 || k == 4 || k == 8) {
+						iDivc105 = document.createElement('div');
+						iDivc105.className = 'preview-subhead descheight';
+						iDivc105.style.height = '115px';
+						iDivc105.style.position = "relative";
+						var str = object[property][a];
+						str = str.replace('|| ', '');
+						iDivc105.innerHTML = str;
+						iDivc21.appendChild(iDivc105);
+					}
+					k++;
+					f++;
+					g++;
+					if (a == 3 || a == 7 || a == 11) {
+						iDivc108 = document.createElement('div');
+						iDivc108.className = 'clearboth';
+						iDivc21.appendChild(iDivc108);
+					}
+				}				
+			}
+			iDivC1.appendChild(iDivc16);
+			iDivC1.appendChild(iDivc21);
 		}
 
-		document.getElementById('impress').appendChild(iDiv10);
-		document.getElementById('impress').appendChild(iDiv100);
-		document.getElementById('impress').appendChild(iDiv101);
+		document.getElementById('impress').appendChild(iDivB1);		
+	//	document.getElementById('impress').appendChild(iDiv10);
+		document.getElementById('impress').appendChild(iDivC1);
+
 		j = j + 1000;
 		p++;
 

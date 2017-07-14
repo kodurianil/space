@@ -52,16 +52,25 @@
 		var li = document.createElement('li');
 
 		var x = document.createElement("IMG");
+
+
 		iDivStart = document.createElement('div');
 		iDivStart.id = 'step-' + i + "x";
 		iDivStart.className = 'step slide slideTitle';
 		iDivStart.style.cssText = "margin-top:20%;";
+		iDivStart.setAttribute("data-x", j + 1000);
+		iDivStart.setAttribute("data-y", j + 3000);
+		iDivStart.setAttribute("data-rotate", j);
 		iDivStarttitle = document.createElement('div');
 		iDivStarttitle.className = 'slideTitle';
-		var pro = "PRODUCT";
-		iDivStarttitle.innerHTML = pro;
-		iDivStart.appendChild(iDivStarttitle);
+		for (var property in object) {
+			if (property == "modelName") {
+				iDivStarttitle.innerHTML = "PRODUCT" +"<br>" + object[property];
+			} 
+			iDivStart.appendChild(iDivStarttitle);
+		}
 		document.getElementById('impress').appendChild(iDivStart);
+
 		iDiv10 = document.createElement('div');
 		iDiv11 = document.createElement('div');
 		iDiv12 = document.createElement('div');
@@ -74,8 +83,8 @@
 		iDiv12.className = 'preview-image';
 		iDiv13.className = 'preview-label';
 		iDiv14.className = 'preview-desc';
-		iDiv10.setAttribute("data-x", j + 1000);
-		iDiv10.setAttribute("data-y", j + 3000);
+		iDiv10.setAttribute("data-x", j + 3000);
+		iDiv10.setAttribute("data-y", j + 7000);
 		iDiv10.setAttribute("data-rotate", j);
 		for (var property in object) {
 			if (property == "longMarketingProductName") {
@@ -101,8 +110,8 @@
 		iDiv100.id = 'step-' + i + "b";
 		iDiv100.className = 'step slide';
 		iDiv100.style.cssText = "margin-top:20%;";
-		iDiv100.setAttribute("data-x", j + 2000);
-		iDiv100.setAttribute("data-y", j + 6000);
+		iDiv100.setAttribute("data-x", j + 5000);
+		iDiv100.setAttribute("data-y", j + 10000);
 		iDiv100.setAttribute("data-rotate", j);
 		iDiv11.className = 'preview-title';
 		iDiv11.innerHTML = "Specification and Features : ";
@@ -129,8 +138,8 @@
 		iDiv101.id = 'step-' + i + "c";
 		iDiv101.className = 'step slide';
 		iDiv101.style.cssText = "margin-top:20%;";
-		iDiv101.setAttribute("data-x", j + 4000);
-		iDiv101.setAttribute("data-y", j + 9000);
+		iDiv101.setAttribute("data-x", j + 7000);
+		iDiv101.setAttribute("data-y", j + 13000);
 		iDiv101.setAttribute("data-rotate", j);
 		iDiv102.className = 'preview-title';
 		iDiv102.innerHTML = "FEATURES ";

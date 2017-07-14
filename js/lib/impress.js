@@ -136,7 +136,7 @@
         height: 768,
         maxScale: 1,
         minScale: 0,
-        
+        scale:1,
         perspective: 1000,
         
         transitionDuration: 1000

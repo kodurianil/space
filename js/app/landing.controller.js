@@ -20,7 +20,7 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
         this.inputtag[facetKey].splice(key,1);
         this.searchByQ();
     }
-    $http.post("http://localhost:6139/ISIFSearch/rest/searchProduct",
+    $http.post("http://43.88.105.233:6139/ISIFSearch/rest/searchProduct",
     {
         "locale": AppData.preferredLanguage,
         "mainCategory" : this.landingPagesInfo[$stateParams.navTabId],
@@ -28,6 +28,7 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
         "facet": false
     })
     .then(function(response){
+        this.loadingData = false;
         this.productsList = response.data.documentList;
         this.facetResult = response.data.facetResult;
     }.bind(this), function(error){
@@ -54,7 +55,7 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
             }            
         }
         params = angular.extend(params, this.inputtag)
-        $http.post("http://localhost:6139/ISIFSearch/rest/searchProduct", params)
+        $http.post("http://43.88.105.233:6139/ISIFSearch/rest/searchProduct", params)
         .then(function(response){
             this.loadingData = false;
             this.productsList = response.data.documentList;
