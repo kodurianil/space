@@ -33,12 +33,12 @@
     </script>
 </head>
 
-<body data-ng-app="ISIPApp" id="bodyISIPApp">
+<body data-ng-app="ISIPApp" id="bodyISIPApp" style="background-color: #eceaea;">
     <header data-ng-controller="headerController as hc">
         <div class="top-line"></div>
         <div class="top-bar">
             <div style="float: left;padding: 10px 0px 0 20px;height:100%">
-                <a style="height: 100%;width: 100%;" ui-sref="welcome">
+                <a style="height: 100%;width: 100%;" ui-sref="welcome" ui-sref-opts="{reload: true}" data-ng-click="hc.hideSubMenu()">
                     <img src="images/Space.png" alt="LOGO" style="width: 100%;"/>
                 </a>
             </div>

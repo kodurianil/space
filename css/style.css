@@ -507,9 +507,10 @@
 }
 .cart-row{
     width: 100%;
-    border:1px solid #e2e2e2;
+    border:1px solid #fff;
     float: left;
     margin-bottom: 25px;
+    background-color: #fff
 }
 .cart-header{
     width: 100%;
@@ -740,7 +741,8 @@ li.widget label{
 }
 
 li.widget ul{
-    background: #efebeb;
+    /*background: #efebeb;*/
+    background:aliceblue;
     border-radius: 0px 0px 4px 4px;
 }
 li.widget ul li a {
