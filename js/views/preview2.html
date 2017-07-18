@@ -132,12 +132,14 @@
 		var imageUrl = "images";
 		
 		if(object.mainCategory.indexOf("televisions")>=0){
-		 	imageUrl += "/tvshots/";			
+			imageUrl += "/tvshots/";			
+			imageUrl += ((i%10)+1)+".png";
 		} 
 		if(object.mainCategory.indexOf("cameras")>=0){
 			imageUrl += "/camerashots/";		
+			imageUrl += ((i%11)+1)+".png";
 		}
-		imageUrl += (i+1)+".png";
+		
 		console.log(imageUrl);
 		iDivB1.style.background = 'url('+imageUrl+')';
 		iDivB1.setAttribute("data-x", j + 1000);

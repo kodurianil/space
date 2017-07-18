@@ -6,59 +6,37 @@
 		display: none;
 	}
 </style>
-<!--<pre>{{productsList|json}}</pre>-->
 <div id="impress">
-	<div data-ng-repeat="product in productsList">
-		<div id="step-0x" class="step slide slideTitle" data-x="1050" data-y="3050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(1050px, 3050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
-			<div class="slideTitle">PRODUCT<br>{{product.name}}</div>
+	 <!-- <div data-ng-repeat="product in productsList">
+		<div id="{{'step-'+$index+'x'}}" class="step slide slideTitle" data-x="1050" data-y="3050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(1050px, 3050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+			<div class="slideTitle">PRODUCT<br>{{product.modelName}}</div>
 		</div>
-		<div id="step-0a" class="step slide" data-x="3050" data-y="7050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(3050px, 7050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
-			<div class="preview-title">Title: Z9D | LED | 4K Ultra HD | High Dynamic Range (HDR) | Smart TV (Android TV™)</div>
-			<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/a9a1a4facfa90abf80b09ac5d1509de7?fmt=png-alpha"></div>
-			<div class="preview-label">Discover a picture unlike any other in 4K HDR with ultra-contrast.</div>
-			<div class="preview-desc">Experience the most stunning picture with the ZD9 4K HDR Android TV, featuring the 4K HDR Processor X1 Extreme and the
-				LED Backlight Master Drive. Explore here.</div>
+		<div id="{{'step-'+$index+'a'}}" class="step slide" data-x="3050" data-y="7050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(3050px, 7050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+			<div class="preview-title">{{product.marketingProductName}}</div>
+			<div class="preview-image"><img ng-src="{{product.imagesPrimaryShot[0]}}"></div>
+			<div class="preview-label">{{product.elevatorPitch}}</div>
+			<div class="preview-desc">{{product.longDescription}}</div>
 		</div>
-		<div id="step-0b" class="step slide" data-x="5050" data-y="10050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(5050px, 10050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+		<div id="{{'step-'+$index+'b'}}" class="step slide" data-x="5050" data-y="10050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(5050px, 10050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
 			<div class="preview-title">Specification and Features : </div>
-			<div class="preview-subhead">Experience the most stunning picture with the ZD9 4K HDR Android TV, featuring the 4K HDR Processor X1 Extreme and the
-				LED Backlight Master Drive. Explore here.</div>
-			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Available in 164 cm (65)</div>
-			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">4K High Dynamic Range</div>
-			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">4K HDR Processor X1™ Extreme</div>
-			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Backlight Master Drive™</div>
-			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Android TV</div>
+			<div class="preview-subhead">{{product.longDescription}}</div>
+			<div data-ng-repeat="featureIcon in product.featureIcons" class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">{{featureIcon}}</div>
 		</div>
-		<div id="step-0c" class="step slide" data-x="7050" data-y="13050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(7050px, 13050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+		<div id="{{'step-'+$index+'c'}}" class="step slide" data-x="7050" data-y="13050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(7050px, 13050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
 			<div class="preview-title">FEATURES </div>
 			<div class="colcount">
-				<div class="preview-subhead" style="position: relative;">Backlight Master Drive™</div>
-				<div class="preview-desc" style="position: relative;"> The Backlight Master Drive™ is a full-array LED backlight technology that combines an ultra-dense LED structure, a spectacular
-					algorithm and a completely new optical design. Powered by the 4K HDR Processor™ X1 Extreme, this technology delivers
-					incredibly deep black, dazzling lights and more vibrant colour.&nbsp;</div>
-				<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/93abebedf98605e91d91881c4e04ed8f?fmt=jpeg"></div>
-				<div class="clearboth"></div>
-				<div class="preview-subhead" style="position: relative;">4K HDR Processor X1™ Extreme: So real you can feel it</div>
-				<div class="preview-desc" style="position: relative;"> Made to enhance the latest generation of 4K HDR pictures, the 4K HDR Processor X1™ Extreme brings reality to every scene.
-					With 40% more real-time image processing than our renowned 4K Processor X1™, it delivers unprecedented picture quality
-					for everything you watch, upscaling content from any source nearer to 4K HDR quality.</div>
-				<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/a68eed5e04bbdbea2da587cc974cc161?fmt=jpeg"></div>
-				<div class="clearboth"></div>
-				<div class="preview-subhead" style="position: relative;">Uncover the detail with 4K HDR</div>
-				<div class="preview-desc" style="position: relative;"> A High Dynamic Range (HDR) compatible TV will change the way you look at TV. Combined with 4K Ultra HD resolution, HDR
-					video content delivers exceptional detail, colour and contrast, with a far wider range of brightness than other video
-					formats. The result is the most lifelike picture that TV has ever been able to create, with brilliant highlights and
-					fine detail.</div>
-				<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/4fd45e3ec09cede1cf537c428165c504?fmt=jpeg"></div>
-				<div class="clearboth"></div>
+				<div data-ng-repeat="featureBenefits in product.featureBenefits|limitTo:12 track by $index" ng-if="$index/4==0">
+					<div class="preview-subhead" style="position: relative;">{{product.featureBenefits[$index]|removeBars}}</div>
+					<div class="preview-desc" style="position: relative;">{{product.featureBenefits[$index+1]|removeBars}}</div>
+					<div class="preview-image"><img ng-src="{{product.featureBenefits[$index+3]|removeBars}}"></div>
+					<div class="clearboth"></div>
+				</div>
 			</div>
 		</div>
-	</div>
+	</div>  -->
 </div>
-<div class="btn btn-primary"> <a ui-sref="cart" class="cart-preview">Back</a></div>
+<div class="btn btn-primary cart-preview" ui-sref="cart">Back</div>
 
-
-<!--
 
 <script>
 	var slides = window.cartSlide.slides;
@@ -66,6 +44,10 @@
 	var i;
 	var j = 50;
 	var k = 100;
+	window.impressPath = "step-0x";
+	if(!slides.length){
+		window.location.hash = "#/cart";
+	}
 	for (i = 0; i < slides.length; i++) {
 		var p = 'a';
 		var object = slides[i];
@@ -90,19 +72,46 @@
 
 		iDivStart = document.createElement('div');
 		iDivStart.id = 'step-' + i + "x";
-		iDivStart.className = 'step slide slideTitle';
+		iDivStart.className = 'step slide';
 		iDivStart.style.cssText = "margin-top:20%;";
-		iDivStart.setAttribute("data-x", j + 1000);
-		iDivStart.setAttribute("data-y", j + 3000);
-		iDivStart.setAttribute("data-rotate", j);
-		iDivStarttitle = document.createElement('div');
-		iDivStarttitle.className = 'slideTitle';
-		for (var property in object) {
-			if (property == "modelName") {
-				iDivStarttitle.innerHTML = "PRODUCT" + "<br>" + object[property];
-			}
-			iDivStart.appendChild(iDivStarttitle);
+		var imageUrl = "images";
+		
+		if(object.mainCategory.indexOf("televisions")>=0){
+		 	imageUrl += "/tvshots/";			
+		} 
+		if(object.mainCategory.indexOf("cameras")>=0){
+			imageUrl += "/camerashots/";		
 		}
+		imageUrl += (i+1)+".png";
+		console.log(imageUrl);
+		iDivStart.style.background = 'url('+imageUrl+')';
+		iDivStart.setAttribute("data-x", j + 1000);
+		// iDivStart.setAttribute("data-y", j + 3000);
+		// iDivStart.setAttribute("data-rotate", j);
+		// iDivStarttitle = document.createElement('div');
+		// iDivStarttitle.className = 'slideTitle';
+		// for (var property in object) {
+		var iDivB101 = document.createElement('div');
+		var iDivB102 = document.createElement('div');
+		if (object.modelName) {
+			iDivB101.className = 'preview-title whitecolor';
+			iDivB101.innerHTML = object.modelName;				
+			iDivStart.appendChild(iDivB101);
+		}
+		if (object.elevatorPitch) {
+			iDivB102.className = 'preview-desc whitecolor';
+			iDivB102.style.bottom = "45px";
+			iDivB102.innerHTML = object.elevatorPitch;
+			iDivStart.appendChild(iDivB102);
+		}
+		
+		// }
+		// for (var property in object) {
+		// 	if (property == "modelName") {
+		// 		iDivStarttitle.innerHTML = "PRODUCT" + "<br>" + object[property];
+		// 	}
+		// 	iDivStart.appendChild(iDivStarttitle);
+		// }
 		document.getElementById('impress').appendChild(iDivStart);
 
 		iDiv10 = document.createElement('div');
@@ -118,8 +127,8 @@
 		iDiv13.className = 'preview-label';
 		iDiv14.className = 'preview-desc';
 		iDiv10.setAttribute("data-x", j + 3000);
-		iDiv10.setAttribute("data-y", j + 7000);
-		iDiv10.setAttribute("data-rotate", j);
+		// iDiv10.setAttribute("data-y", j + 7000);
+		// iDiv10.setAttribute("data-rotate", j);
 		for (var property in object) {
 			if (property == "longMarketingProductName") {
 				iDiv11.innerHTML = "Title:  " + object[property];
@@ -128,8 +137,11 @@
 				iDiv12.appendChild(x);
 			} else if (property == "elevatorPitch") {
 				iDiv13.innerHTML = object[property];
+				iDiv13.style.color = "#000";
+				iDiv13.style.float = "none";
 			} else if (property == "longDescription") {
 				iDiv14.innerHTML = object[property];
+				iDiv14.style.color = "#000";
 			}
 			iDiv10.appendChild(iDiv11);
 			iDiv12.appendChild(x);
@@ -145,8 +157,8 @@
 		iDiv100.className = 'step slide';
 		iDiv100.style.cssText = "margin-top:20%;";
 		iDiv100.setAttribute("data-x", j + 5000);
-		iDiv100.setAttribute("data-y", j + 10000);
-		iDiv100.setAttribute("data-rotate", 0);
+		// iDiv100.setAttribute("data-y", j + 10000);
+		// iDiv100.setAttribute("data-rotate", 0);
 		iDiv11.className = 'preview-title';
 		iDiv11.innerHTML = "Specification and Features : ";
 		iDiv100.appendChild(iDiv11);
@@ -154,6 +166,7 @@
 			if (property == "longDescription") {
 				iDiv12.className = 'preview-subhead';
 				iDiv12.innerHTML = object[property];
+				iDiv12.style.color = "#000";
 				iDiv100.appendChild(iDiv12);
 			}
 			if (property == "featureIcons") {
@@ -173,8 +186,8 @@
 		iDiv101.className = 'step slide';
 		iDiv101.style.cssText = "margin-top:20%;";
 		iDiv101.setAttribute("data-x", j + 7000);
-		iDiv101.setAttribute("data-y", j + 13000);
-		iDiv101.setAttribute("data-rotate", j);
+		// iDiv101.setAttribute("data-y", j + 13000);
+		// iDiv101.setAttribute("data-rotate", j);
 		iDiv102.className = 'preview-title';
 		iDiv102.innerHTML = "FEATURES ";
 		iDiv101.appendChild(iDiv102);
@@ -231,12 +244,12 @@
 		document.getElementById('impress').appendChild(iDiv10);
 		document.getElementById('impress').appendChild(iDiv100);
 		document.getElementById('impress').appendChild(iDiv101);
-		j = j + 1000;
+		j = j + 8000;
 		p++;
 
 	}
 
-</script>-->
+</script>
 <!--<div id="impress">
 	<div id="step-0x" class="step slide slideTitle" data-x="1050" data-y="3050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(1050px, 3050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
 		<div class="slideTitle">PRODUCT<br>KD-65Z9D</div>

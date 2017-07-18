@@ -618,7 +618,7 @@
 }
 .preview-desc{
 	float:left;
-	font-size: 18px;
+	font-size: 17px;
     overflow: auto;
     height: 180px;
     color:black;
@@ -643,6 +643,7 @@
     margin-top: 20px;
     height: 110px;
     overflow: overlay;
+    color: #000;
 }
 .class50P1 {
     width: 50%;
@@ -675,6 +676,7 @@
      width: 100%;
          height: 100px;
          font-weight: bold;
+         color:#000;
 }
 .colcount .preview-image img{
     width: 100%;
@@ -686,7 +688,7 @@
     border-right: 1px solid #ddd;
     padding: 5px 10px;
      border-left: 1px solid #ddd;
-     height: 235px;
+     height: 310px;
     overflow: hidden;
     width: 100%;
 }

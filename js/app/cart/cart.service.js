@@ -3,7 +3,7 @@ var ISIPApp = angular.module("ISIPApp");
 ISIPApp.service("AppData", ["$timeout","$http", function($timeout, $http){
     var cartItem = [], cartItemIds = [];
     this.preferredLanguage = "en_IN";
-    this.httpUrl = "http://INSISCILT-2009:6139/ISIFSearch";
+    this.httpUrl = "http://localhost:6139/ISIFSearch";
     function pushCartItem(item){
         cartItemIds.push(item.productId);
         cartItem.push(item);
