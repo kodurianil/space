@@ -4,29 +4,63 @@
 <style>
 	header {
 		display: none;
-	}	
+	}
 </style>
-<div class="fallback-message">
-	<p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version
-		of this presentation.</p>
-	<p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
-</div>
-
+<!--<pre>{{productsList|json}}</pre>-->
 <div id="impress">
+	<div data-ng-repeat="product in productsList">
+		<div id="step-0x" class="step slide slideTitle" data-x="1050" data-y="3050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(1050px, 3050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+			<div class="slideTitle">PRODUCT<br>{{product.name}}</div>
+		</div>
+		<div id="step-0a" class="step slide" data-x="3050" data-y="7050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(3050px, 7050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+			<div class="preview-title">Title: Z9D | LED | 4K Ultra HD | High Dynamic Range (HDR) | Smart TV (Android TV™)</div>
+			<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/a9a1a4facfa90abf80b09ac5d1509de7?fmt=png-alpha"></div>
+			<div class="preview-label">Discover a picture unlike any other in 4K HDR with ultra-contrast.</div>
+			<div class="preview-desc">Experience the most stunning picture with the ZD9 4K HDR Android TV, featuring the 4K HDR Processor X1 Extreme and the
+				LED Backlight Master Drive. Explore here.</div>
+		</div>
+		<div id="step-0b" class="step slide" data-x="5050" data-y="10050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(5050px, 10050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+			<div class="preview-title">Specification and Features : </div>
+			<div class="preview-subhead">Experience the most stunning picture with the ZD9 4K HDR Android TV, featuring the 4K HDR Processor X1 Extreme and the
+				LED Backlight Master Drive. Explore here.</div>
+			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Available in 164 cm (65)</div>
+			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">4K High Dynamic Range</div>
+			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">4K HDR Processor X1™ Extreme</div>
+			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Backlight Master Drive™</div>
+			<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Android TV</div>
+		</div>
+		<div id="step-0c" class="step slide" data-x="7050" data-y="13050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(7050px, 13050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+			<div class="preview-title">FEATURES </div>
+			<div class="colcount">
+				<div class="preview-subhead" style="position: relative;">Backlight Master Drive™</div>
+				<div class="preview-desc" style="position: relative;"> The Backlight Master Drive™ is a full-array LED backlight technology that combines an ultra-dense LED structure, a spectacular
+					algorithm and a completely new optical design. Powered by the 4K HDR Processor™ X1 Extreme, this technology delivers
+					incredibly deep black, dazzling lights and more vibrant colour.&nbsp;</div>
+				<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/93abebedf98605e91d91881c4e04ed8f?fmt=jpeg"></div>
+				<div class="clearboth"></div>
+				<div class="preview-subhead" style="position: relative;">4K HDR Processor X1™ Extreme: So real you can feel it</div>
+				<div class="preview-desc" style="position: relative;"> Made to enhance the latest generation of 4K HDR pictures, the 4K HDR Processor X1™ Extreme brings reality to every scene.
+					With 40% more real-time image processing than our renowned 4K Processor X1™, it delivers unprecedented picture quality
+					for everything you watch, upscaling content from any source nearer to 4K HDR quality.</div>
+				<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/a68eed5e04bbdbea2da587cc974cc161?fmt=jpeg"></div>
+				<div class="clearboth"></div>
+				<div class="preview-subhead" style="position: relative;">Uncover the detail with 4K HDR</div>
+				<div class="preview-desc" style="position: relative;"> A High Dynamic Range (HDR) compatible TV will change the way you look at TV. Combined with 4K Ultra HD resolution, HDR
+					video content delivers exceptional detail, colour and contrast, with a far wider range of brightness than other video
+					formats. The result is the most lifelike picture that TV has ever been able to create, with brilliant highlights and
+					fine detail.</div>
+				<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/4fd45e3ec09cede1cf537c428165c504?fmt=jpeg"></div>
+				<div class="clearboth"></div>
+			</div>
+		</div>
+	</div>
 </div>
 <div class="btn btn-primary"> <a ui-sref="cart" class="cart-preview">Back</a></div>
 
 
-
+<!--
 
 <script>
-	console.log("==>", window.cartSlide.slides);
-	if ("ontouchstart" in document.documentElement) {
-		document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-	}
-
-	//angular.element(document.querySelector('[ng-controller="previewController"]')).scope().productsList;
-
 	var slides = window.cartSlide.slides;
 	var text = "";
 	var i;
@@ -65,8 +99,8 @@
 		iDivStarttitle.className = 'slideTitle';
 		for (var property in object) {
 			if (property == "modelName") {
-				iDivStarttitle.innerHTML = "PRODUCT" +"<br>" + object[property];
-			} 
+				iDivStarttitle.innerHTML = "PRODUCT" + "<br>" + object[property];
+			}
 			iDivStart.appendChild(iDivStarttitle);
 		}
 		document.getElementById('impress').appendChild(iDivStart);
@@ -112,7 +146,7 @@
 		iDiv100.style.cssText = "margin-top:20%;";
 		iDiv100.setAttribute("data-x", j + 5000);
 		iDiv100.setAttribute("data-y", j + 10000);
-		iDiv100.setAttribute("data-rotate", j);
+		iDiv100.setAttribute("data-rotate", 0);
 		iDiv11.className = 'preview-title';
 		iDiv11.innerHTML = "Specification and Features : ";
 		iDiv100.appendChild(iDiv11);
@@ -201,9 +235,55 @@
 		p++;
 
 	}
-</script>
 
+</script>-->
+<!--<div id="impress">
+	<div id="step-0x" class="step slide slideTitle" data-x="1050" data-y="3050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(1050px, 3050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+		<div class="slideTitle">PRODUCT<br>KD-65Z9D</div>
+	</div>
+	<div id="step-0a" class="step slide" data-x="3050" data-y="7050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(3050px, 7050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+		<div class="preview-title">Title: Z9D | LED | 4K Ultra HD | High Dynamic Range (HDR) | Smart TV (Android TV™)</div>
+		<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/a9a1a4facfa90abf80b09ac5d1509de7?fmt=png-alpha"></div>
+		<div class="preview-label">Discover a picture unlike any other in 4K HDR with ultra-contrast.</div>
+		<div class="preview-desc">Experience the most stunning picture with the ZD9 4K HDR Android TV, featuring the 4K HDR Processor X1 Extreme and the
+			LED Backlight Master Drive. Explore here.</div>
+	</div>
+	<div id="step-0b" class="step slide" data-x="5050" data-y="10050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(5050px, 10050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+		<div class="preview-title">Specification and Features : </div>
+		<div class="preview-subhead">Experience the most stunning picture with the ZD9 4K HDR Android TV, featuring the 4K HDR Processor X1 Extreme and the
+			LED Backlight Master Drive. Explore here.</div>
+		<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Available in 164 cm (65)</div>
+		<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">4K High Dynamic Range</div>
+		<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">4K HDR Processor X1™ Extreme</div>
+		<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Backlight Master Drive™</div>
+		<div class="class50"><img src="images/star.png" style="margin-right:10px; width: auto;zoom: 2;">Android TV</div>
+	</div>
+	<div id="step-0c" class="step slide" data-x="7050" data-y="13050" data-rotate="50" style="margin-top: 20%; position: absolute; transform: translate(-50%, -50%) translate3d(7050px, 13050px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(50deg) scale(1); transform-style: preserve-3d;">
+		<div class="preview-title">FEATURES </div>
+		<div class="colcount">
+			<div class="preview-subhead" style="position: relative;">Backlight Master Drive™</div>
+			<div class="preview-desc" style="position: relative;"> The Backlight Master Drive™ is a full-array LED backlight technology that combines an ultra-dense LED structure, a spectacular
+				algorithm and a completely new optical design. Powered by the 4K HDR Processor™ X1 Extreme, this technology delivers
+				incredibly deep black, dazzling lights and more vibrant colour.&nbsp;</div>
+			<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/93abebedf98605e91d91881c4e04ed8f?fmt=jpeg"></div>
+			<div class="clearboth"></div>
+			<div class="preview-subhead" style="position: relative;">4K HDR Processor X1™ Extreme: So real you can feel it</div>
+			<div class="preview-desc" style="position: relative;"> Made to enhance the latest generation of 4K HDR pictures, the 4K HDR Processor X1™ Extreme brings reality to every scene.
+				With 40% more real-time image processing than our renowned 4K Processor X1™, it delivers unprecedented picture quality
+				for everything you watch, upscaling content from any source nearer to 4K HDR quality.</div>
+			<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/a68eed5e04bbdbea2da587cc974cc161?fmt=jpeg"></div>
+			<div class="clearboth"></div>
+			<div class="preview-subhead" style="position: relative;">Uncover the detail with 4K HDR</div>
+			<div class="preview-desc" style="position: relative;"> A High Dynamic Range (HDR) compatible TV will change the way you look at TV. Combined with 4K Ultra HD resolution, HDR
+				video content delivers exceptional detail, colour and contrast, with a far wider range of brightness than other video
+				formats. The result is the most lifelike picture that TV has ever been able to create, with brilliant highlights and
+				fine detail.</div>
+			<div class="preview-image"><img src="//sonyglobal.scene7.com/is/image/gwtprod/4fd45e3ec09cede1cf537c428165c504?fmt=jpeg"></div>
+			<div class="clearboth"></div>
+		</div>
+	</div>
+</div>-->
 <script src="js/lib/impress.js"></script>
 <script>
-		impress();
+	impress();
 </script>

@@ -119,6 +119,8 @@ body {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 30px;
     letter-spacing: -1px;
+    /*background:rgba(203, 235, 239, 0.94);*/
+    padding:20px;
 }
 
 

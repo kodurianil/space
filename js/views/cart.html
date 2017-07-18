@@ -35,7 +35,7 @@
                         </div>
                         <div class="col-sm-2 pull-right">
                             <button type="button" class="btn btn-danger" data-ng-click="cartCtrl.deleteCartItem($index, product)">
-                                <span class="glyphicon glyphicon-remove"></span> Remove
+                                <span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </div>
                     </div>
@@ -46,8 +46,11 @@
                 <div class="cart-total">
                     <div class="cart-info"> Preview Presentation </div>
                     <div class="cart-text"> Total Products: {{cartCtrl.productsList.length}}</div>
-                    <div><button ui-sref="preview1" class="cart-checkout  btn btn-danger cart-preview">Template 1</button></div>
-                    <div><button ui-sref="preview2" class="cart-checkout  btn btn-danger cart-preview">Template 2</button></div>
+                    <button data-ng-click="cartCtrl.autoTemplate()" class="cart-checkout  btn btn-success cart-preview">Preview</button>
+                    <div class="cart-info"> Choose your template</div>
+                    <div><button ui-sref="preview1" class="cart-checkout  btn btn-primary cart-preview">Detailed</button></div>
+                    <div><button ui-sref="preview2" class="cart-checkout  btn btn-primary cart-preview">Summary</button></div>
+                    <div><button data-ng-click="cartCtrl.comparison()" class="cart-checkout  btn btn-primary cart-preview">Comparison</button></div>
                 </div>
             </div>
         </div>

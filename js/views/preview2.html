@@ -14,6 +14,8 @@
 	font-size: 20px;
 	text-decoration: underline;
     font-weight: bold;
+	padding:3px;
+	color: black;
 }
 .colcount{
 	font-size: 15px;
@@ -35,6 +37,8 @@
    overflow: hidden;
    width: 100%;
    font-size: 15px;
+   padding:10px;
+
 }
 .preview-label2{
     background-color: #37d3f7;
@@ -60,7 +64,8 @@
     margin-right: 0;
 }
 .supfeat{
-    background-color: #b1e2ac;
+    background-color: #4d92c3;
+    /*background-color: #b1e2ac;*/
     padding: 10px 20px;
     text-decoration: none;
     color: #fff;
@@ -76,7 +81,7 @@
 
 <div id="impress">
 </div>
-<div class="btn btn-primary"> <a ui-sref="cart" class="cart-preview">Back</a></div>
+<button class="btn btn-primary cart-preview" ui-sref="cart">Back</button>
 
 
 
@@ -94,9 +99,14 @@
 	var i;
 	var j = -500;
 	var k = 100;
+	if(!slides.length){
+		window.location.hash = "#/cart";
+	}
+	window.impressPath = "step-0b";
 	for (i = 0; i < slides.length; i++) {
 		var p = 'a';
 		var object = slides[i];
+		
 		var iDiv = document.createElement('div');
 		var iDiv1 = document.createElement('div');
 		var iDiv2 = document.createElement('div');
@@ -119,7 +129,17 @@
 		iDivB1.id = 'step-' + i + "b";
 		iDivB1.className = 'step slide';
 		iDivB1.style.cssText = "margin-top:20%;";
-		iDivB1.style.background = 'url("images/slide2.png")';
+		var imageUrl = "images";
+		
+		if(object.mainCategory.indexOf("televisions")>=0){
+		 	imageUrl += "/tvshots/";			
+		} 
+		if(object.mainCategory.indexOf("cameras")>=0){
+			imageUrl += "/camerashots/";		
+		}
+		imageUrl += (i+1)+".png";
+		console.log(imageUrl);
+		iDivB1.style.background = 'url('+imageUrl+')';
 		iDivB1.setAttribute("data-x", j + 1000);
 		//iDivB1.setAttribute("data-y", j + 3000);
 	//	iDivB1.setAttribute("data-rotate", j);
@@ -158,8 +178,8 @@
 
 		var cx = document.createElement("IMG");
 		iDivc11.className = 'preview-title titlecolor';
-		iDivc12.className = 'preview-image class50P1 greyBack';
-		iDivc12.style.height = '45%';
+		iDivc12.className = 'preview-image class50P1';
+		iDivc12.style.height = '40%';
 		iDivc13.className = 'preview-label';
 		iDivc14.className = 'preview-desc';
 		iDivc15 = document.createElement('div');
@@ -175,7 +195,7 @@
 		iDivc108 = document.createElement('div');
 		iDivc108.className = 'clearboth';	
 		iDivc109 = document.createElement('div');
-		iDivc109.className = 'class50P1 greyBack';	
+		iDivc109.className = 'class50P1';	
 
 		for (var property in object) {
 			if (property == "longMarketingProductName") {
@@ -185,7 +205,7 @@
 			} else if (property == "featureIcons") {				
 				iDivc20.className = 'class50P2';
 				iDivc20.style.border = 'none';
-				iDivc20.style.height = '195px';
+				iDivc20.style.height = '260px';
 				iDivc20.style.overflow = 'hidden';
 				iDivc20.style.margin = '0';
 				iDivc20.style.padding = '0';
@@ -193,12 +213,14 @@
 				iDivc20.style.overflow = 'hidden';
 	
 				iDivc15.innerHTML = "Specification and Features : ";	
-				iDivc20.appendChild(iDivc15);							
+				iDivc20.appendChild(iDivc15);
+				console.log(object[property]);
 				for (var a = 0; a < object[property].length; a++) {
 					var divs = document.createElement('div');
 					divs.className = 'class50P2';
 					divs.style.height = '70px';
 					divs.style.overflow = 'hidden';
+					divs.style.color = 'black';
 					divs.innerHTML = "<img src='images/star.png' style='margin-right:10px; width: auto;' >" + object[property][a];
 					iDivc20.appendChild(divs);										
 				}				
@@ -207,9 +229,9 @@
 			iDivc12.appendChild(cx);
 			iDivC1.appendChild(iDivc12);			
 			iDivC1.appendChild(iDivc20);
-			iDivc2.className = 'preview-label class50 awards';
-			iDivc2.innerHTML = "AWARDS";			
-			iDivC1.appendChild(iDivc2);			
+			// iDivc2.className = 'preview-label class50 awards';
+			// iDivc2.innerHTML = "AWARDS";			
+			// iDivC1.appendChild(iDivc2);			
 			iDivC1.appendChild(iDivc108);			
 			if (property == "elevatorPitch") {
 				iDivc13.innerHTML = object[property];								
@@ -222,7 +244,7 @@
 			
 			if (property == "featureBenefits") {
 				iDivc16.className = 'preview-label class50 supfeat';
-				iDivc16.innerHTML = "SUPIRIOR TECHNOLOGY ";				
+				iDivc16.innerHTML = "SUPERIOR TECHNOLOGY ";				
 				var k = 0; var f = 0; var g = 0;
 				iDivc21.className = 'colcount';
 				for (var a = 0; a < object[property].length; a++) {
@@ -241,6 +263,7 @@
 						iDivc105 = document.createElement('div');
 						iDivc105.className = 'preview-subhead descheight';
 						iDivc105.style.height = '115px';
+						iDivc105.style.color = 'black';
 						iDivc105.style.position = "relative";
 						var str = object[property][a];
 						str = str.replace('|| ', '');

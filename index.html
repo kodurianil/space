@@ -14,7 +14,7 @@
 
     <script src="js/lib/jquery.js"></script>
     <script src="js/lib/bootstrap.js"></script>
-    
+    <script src="js/lib/FileSaver.js"></script>
     <script src="js/lib/angular.min.js"></script>
     <script src="js/lib/angular-ui-router.min.js"></script>
     <script src="js/lib/angular-sanitize.min.js"></script>
@@ -29,11 +29,12 @@
     <!--<script src="js/lib/impress.js"></script>-->
     <script>
         var cartSlide = {};
-        cartSlide.slides = [2];
+        cartSlide.slides = [];
     </script>
 </head>
 
-<body data-ng-app="ISIPApp" id="bodyISIPApp" style="background-color: #eceaea;">
+<!--<body data-ng-app="ISIPApp" id="bodyISIPApp" style="background-color: #eceaea;">-->
+<body data-ng-app="ISIPApp" id="bodyISIPApp" >
     <header data-ng-controller="headerController as hc">
         <div class="top-line"></div>
         <div class="top-bar">
@@ -43,11 +44,11 @@
                 </a>
             </div>
             <div class="col-lg-1 pull-right top_padding">
-                <a ui-sref="cart">
-                    <div class="cart_icon" ng-mouseout="showPopover=false;" ng-mouseover="showPopover=true;" ng-click="showPopover=false;"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
-                    <div class="ycircle" ng-mouseout="showPopover=false;" ng-mouseover="showPopover=true;" ng-click="showPopover=false;">{{hc.getCartItem().length}}</div>
+                <a ui-sref="cart" ng-mouseout="showPopover=false;" ng-mouseover="showPopover=true;" >
+                    <div class="cart_icon" ng-click="showPopover=false;"> <i class="fa fa-shopping-cart" style="zoom:2;"></i></div>
+                    <div class="ycircle" ng-click="showPopover=false;">{{hc.getCartItem().length}}</div>
                 </a>
-                <div class="cart-popover" cart-popover ng-show="showPopover"></div>
+                <div class="cart-popover" ng-mouseout="showPopover=false;" ng-mouseover="showPopover=true;" cart-popover ng-show="showPopover"></div>
             </div>
             <div class="col-lg-2 pull-right top_padding">
                 <i class="fa fa-user" style="zoom:2;margin: -1px 3px 0 0; vertical-align: middle;"></i>

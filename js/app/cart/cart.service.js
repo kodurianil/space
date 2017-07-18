@@ -1,12 +1,11 @@
 var ISIPApp = angular.module("ISIPApp");
 
 ISIPApp.service("AppData", ["$timeout","$http", function($timeout, $http){
-    var cartItem = [];
-    this.cartItemIds = [];
+    var cartItem = [], cartItemIds = [];
     this.preferredLanguage = "en_IN";
-    
+    this.httpUrl = "http://INSISCILT-2009:6139/ISIFSearch";
     function pushCartItem(item){
-        this.cartItemIds.push(item.productId);
+        cartItemIds.push(item.productId);
         cartItem.push(item);
     }
 
@@ -17,16 +16,21 @@ ISIPApp.service("AppData", ["$timeout","$http", function($timeout, $http){
     function deleteCartItem(index, item){
         item.isInCart = false;
         cartItem.splice(index, 1);
-        if(this.cartItemIds.indexOf(item.productId)>-1){
-            this.cartItemIds.splice(this.cartItemIds.indexOf(item.productId),1);
+        if(cartItemIds.indexOf(item.productId)>-1){
+            cartItemIds.splice(cartItemIds.indexOf(item.productId),1);
         }
     }
     
     function deleteAllCartItem(){
         cartItem.splice(0, cartItem.length);
-        this.cartItemIds.splice(0,this.cartItemIds.length);
+        cartItemIds.splice(0,cartItemIds.length);
     }
 
+    function getCartItemIds(){
+        return cartItemIds;
+    }
+
+    this.getCartItemIds = getCartItemIds;
     this.pushCartItem = pushCartItem;
     this.getCartItem  = getCartItem;
     this.deleteCartItem = deleteCartItem;

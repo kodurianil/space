@@ -4,8 +4,8 @@
 	font-size:20px;
 }
 .cart_icon{
-	height:20px;
-	width:20px;
+	height:30px;
+	width:32px;
 	float: left;
 }
 .login_icon{
@@ -31,7 +31,7 @@
     -webkit-border-radius: 15px;
     border-radius: 15px;
     float: left;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     padding-top: 4px;
     color:#fff;
     }
@@ -152,9 +152,9 @@
      color: #424242 !important;
      font-size: 13px !important;
 }
-.greyback{
+/*.greyback{
 	background-color: #f8f8f8;
-}
+}*/
 .contBox{
 	float:left;
 	height:200px;
@@ -191,7 +191,7 @@
 	width:100%;
 }
 .top-bar{
-	height:80px;
+	height:70px;
 	width:100%;
 	text-align:center;
   /* background-image: linear-gradient(to top, #f0f0f0, #f4f4f4);*/
@@ -524,7 +524,8 @@
 .cart-body{
     width:100%;
     float:left;
-    margin: 20px 0;
+    padding: 20px 0;
+    border-bottom: 1px solid;
 }
 .cartimg{
     width:75%;
@@ -560,8 +561,8 @@
     width: 80%;
     text-align: center;
     padding: 5px;
-    background-color: #d9534f;
-    color: #fff;
+    /*background-color: #d9534f;
+    color: #fff;*/
     border-radius: 5px;
 }
 .spacer{
@@ -617,7 +618,10 @@
 }
 .preview-desc{
 	float:left;
-	font-size: 22px;
+	font-size: 18px;
+    overflow: auto;
+    height: 180px;
+    color:black;
 }
 .preview-subhead{
 	float:left;
@@ -646,7 +650,7 @@
 }
 .class50P2 {
     width: 45%;
-    float: right;
+    float: left;
     padding: 5px 10px;
     border-bottom: 2px solid #ddd;
     font-size: 20px;
@@ -696,8 +700,9 @@
     background: #f8f8f8;
 }
 .titlecolor{
-        background: #696868;
+    background: rgba(0, 0, 0, 0.58);
     color: #fff;
+    border-radius:10px
 }
 .descheight{
         height: 161px;
@@ -730,20 +735,28 @@ li.widget {
 }
 
 li.widget label{
-    width: 100%;
+    /*width: 100%;
     background: #3d8e8e;
     color: #fff;
     height: 30px;
     padding: 5px;
     border-radius: 4px 4px 0px 0px;
     margin: 0px;
+    text-transform: uppercase;*/
+        width: 100%;
+    /* background: white; */
+    color: black;
+    /* height: 30px; */
+    /* padding: 5px; */
+    /* border-radius: 4px 4px 0px 0px; */
+    margin: 0px;
     text-transform: uppercase;
 }
 
 li.widget ul{
-    /*background: #efebeb;*/
+    /*background: #efebeb;
     background:aliceblue;
-    border-radius: 0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;*/
 }
 li.widget ul li a {
     text-transform: capitalize;

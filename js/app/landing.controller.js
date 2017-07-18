@@ -6,14 +6,15 @@ ISIPApp.controller("landingController", ["$stateParams", "$state","$http", "AppD
         101:"televisions",
         102:"cameras"
     }
-    this.searchurl = "http://INSISCILT-2009:6139/ISIFSearch/rest/searchProduct";
+    this.searchurl = AppData.httpUrl+"/rest/searchProduct";
     this.searchWord = "";
     this.searchWord1 = "";
     this.productsList = [];
     this.facetResult = {};
     this.inputtag = {};
     this.pushCartItem = AppData.pushCartItem;
-    this.cartItemIds = AppData.cartItemIds;
+    this.cartItemIds = AppData.getCartItemIds();
+
     this.bindFacetInfo = function(innerKey, innerMenu){
         return innerKey + " (" + innerMenu + ")";
     }
