@@ -3,7 +3,7 @@
         <div class="container">
             <div class="col-lg-9">
                 <div class="spacer"></div>
-                <h1 class="page-header text-left" style="margin-top:0;">Products in your cart
+                <h1 class="page-header text-left" style="margin-top:0;">Products in your wishlist
                     <button data-ng-if="cartCtrl.productsList.length" type="button" class="btn btn-danger" style="float:right;" data-ng-click="cartCtrl.deleteAllCartItem()">
                         Remove All
                     </button>
@@ -46,8 +46,10 @@
                 <div class="cart-total">
                     <div class="cart-info"> Preview Presentation </div>
                     <div class="cart-text"> Total Products: {{cartCtrl.productsList.length}}</div>
+                    <div class="cart-text"> </div>
+                    <div class="cart-info"> Recommended template</div>
                     <button data-ng-click="cartCtrl.autoTemplate()" class="cart-checkout  btn btn-success cart-preview">Preview</button>
-                    <div class="cart-info"> Choose your template</div>
+                    <div class="cart-info"> Choose your own template</div>
                     <div><button ui-sref="preview1" class="cart-checkout  btn btn-primary cart-preview">Detailed</button></div>
                     <div><button ui-sref="preview2" class="cart-checkout  btn btn-primary cart-preview">Summary</button></div>
                     <div><button data-ng-click="cartCtrl.comparison()" class="cart-checkout  btn btn-primary cart-preview">Comparison</button></div>

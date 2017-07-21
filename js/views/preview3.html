@@ -93,39 +93,17 @@
 	}
 
 	//angular.element(document.querySelector('[ng-controller="previewController"]')).scope().productsList;
-	
+
 	var slides = window.cartSlide.slides;
 	var text = "";
 	var i;
 	var j = -500;
 	var k = 100;
-	var offsetX = parseInt(-900 / 2, 10);
-	var offsetY = parseInt(-700 / 2, 10);
-	var c = 900 * slides.length*2;
-	var r = parseInt(c / 2 / Math.PI + 900 / 2, 10);
-	var l=360/(slides.length*2);
-	var rt=0;
-	
-	var len=slides.length*2;
 	if(!slides.length){
 		window.location.hash = "#/cart";
 	}
-	var xcordinates=[];
-	var ycordinates=[];
-	var inc=len-1;
-	for(i=0;i<(slides.length*2);i++){
-		var de = l*(len-- -1);
-		var rotate = de;
-		var ra = (360 - de) * Math.PI / 180;
-		var xCor = parseInt(offsetX + Math.cos(ra) * r, 10);
-		var yCor = parseInt(offsetY - Math.sin(ra) * r, 10);
-		xcordinates[i]=xCor;
-		ycordinates[i]=yCor;
-	}
-	
 	window.impressPath = "step-0b";
 	for (i = 0; i < slides.length; i++) {
-		
 		var p = 'a';
 		var object = slides[i];
 		
@@ -154,23 +132,17 @@
 		var imageUrl = "images";
 		
 		if(object.mainCategory.indexOf("televisions")>=0){
-			imageUrl += "/tvshots/";			
-			imageUrl += ((i%10)+1)+".png";
+		 	imageUrl += "/tvshots/";			
 		} 
 		if(object.mainCategory.indexOf("cameras")>=0){
 			imageUrl += "/camerashots/";		
-			imageUrl += ((i%11)+1)+".png";
 		}
-		
+		imageUrl += (i+1)+".png";
 		console.log(imageUrl);
 		iDivB1.style.background = 'url('+imageUrl+')';
-		iDivB1.setAttribute("data-x", xcordinates[inc]);
-		iDivB1.setAttribute("data-y", ycordinates[inc]);
-		iDivB1.setAttribute("data-rotate", rt);
-		iDivB1.setAttribute("data-scale", 1);
-		rt+=l;
-		inc--;
-		
+		iDivB1.setAttribute("data-x", j + 1000);
+		//iDivB1.setAttribute("data-y", j + 3000);
+	//	iDivB1.setAttribute("data-rotate", j);
 		var iDivB100 = document.createElement('div');
 		var iDivB101 = document.createElement('div');
 		var iDivB102 = document.createElement('div');
@@ -191,12 +163,9 @@
 		iDivC1.id = 'step-' + i + "c";
 		iDivC1.className = 'step slide';
 		iDivC1.style.cssText = "margin-top:20%;";
-		iDivC1.setAttribute("data-x", xcordinates[inc]);
-		iDivC1.setAttribute("data-y", ycordinates[inc]);
-		iDivC1.setAttribute("data-rotate", rt);
-		iDivC1.setAttribute("data-scale", 1);
-		rt+=l;
-		inc--;
+		iDivC1.setAttribute("data-x", j + 3000);
+	//	iDivC1.setAttribute("data-y", j + 7000);
+	//	iDivC1.setAttribute("data-rotate", j);
 		var iDivc1 = document.createElement('div');
 		var iDivc2 = document.createElement('div');
 		var iDivc3 = document.createElement('div');
@@ -320,16 +289,8 @@
 
 		j = j + 4000;
 		p++;
-		
+
 	}
-	var finalDiv = document.createElement('div');
-	finalDiv.id = 'step-' + len;
-	finalDiv.className = 'step';
-	finalDiv.style.cssText = "margin-top:20%;";
-	finalDiv.setAttribute("data-x", 0);
-	finalDiv.setAttribute("data-y", 0);
-	finalDiv.setAttribute("data-scale",slides.length);
-	document.getElementById('impress').appendChild(finalDiv);
 </script>
 
 <script src="js/lib/impress.js"></script>
